@@ -35577,6 +35577,24 @@ Discarded input sections
  .text          0x0000000000000000        0x0 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/us_ticker.o
  .data          0x0000000000000000        0x0 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/us_ticker.o
  .bss           0x0000000000000000        0x0 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/us_ticker.o
+ .text          0x0000000000000000        0x0 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+ .data          0x0000000000000000        0x0 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+ .bss           0x0000000000000000        0x0 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+ .text._ZN8rxBuffer5add_cEc
+                0x0000000000000000       0x24 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+ .text._ZN8rxBuffer5clearEv
+                0x0000000000000000       0x14 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+ .debug_info    0x0000000000000000       0x50 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+ .debug_abbrev  0x0000000000000000       0x44 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+ .debug_aranges
+                0x0000000000000000       0x28 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+ .debug_ranges  0x0000000000000000       0x18 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+ .debug_line    0x0000000000000000       0x52 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+ .debug_str     0x0000000000000000      0x1b0 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+ .comment       0x0000000000000000       0x7f BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+ .debug_frame   0x0000000000000000       0x38 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+ .ARM.attributes
+                0x0000000000000000       0x37 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
  .text          0x0000000000000000        0x0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libstdc++.a(new_handler.o)
  .data          0x0000000000000000        0x0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libstdc++.a(new_handler.o)
  .bss           0x0000000000000000        0x0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libstdc++.a(new_handler.o)
@@ -37421,6 +37439,7 @@ LOAD BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/sleep.o
 LOAD BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/stm_spi_api.o
 LOAD BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/trng_api.o
 LOAD BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/us_ticker.o
+LOAD BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
 START GROUP
 LOAD /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libstdc++.a
 LOAD /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libsupc++.a
