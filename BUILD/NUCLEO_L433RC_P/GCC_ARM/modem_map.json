@@ -1,0 +1,483 @@
+[
+    {
+        "module": "[fill]", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 49, 
+            ".data": 12, 
+            ".bss-delta": 2, 
+            ".text": 143
+        }
+    }, 
+    {
+        "module": "[lib]/c.a", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 89, 
+            ".data": 2472, 
+            ".bss-delta": 0, 
+            ".text": 28081
+        }
+    }, 
+    {
+        "module": "[lib]/gcc.a", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 3112
+        }
+    }, 
+    {
+        "module": "[lib]/misc", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 28, 
+            ".data": 12, 
+            ".bss-delta": 0, 
+            ".text": 208
+        }
+    }, 
+    {
+        "module": "cmsis/TARGET_CORTEX_M", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 84, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 1033
+        }
+    }, 
+    {
+        "module": "components/802.15.4_RF", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 96
+        }
+    }, 
+    {
+        "module": "components/wifi", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 50
+        }
+    }, 
+    {
+        "module": "drivers/FlashIAP.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 134
+        }
+    }, 
+    {
+        "module": "drivers/I2C.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 16
+        }
+    }, 
+    {
+        "module": "drivers/RawSerial.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 148
+        }
+    }, 
+    {
+        "module": "drivers/SPI.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 100, 
+            ".data": 4, 
+            ".bss-delta": 0, 
+            ".text": 120
+        }
+    }, 
+    {
+        "module": "drivers/Serial.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 394
+        }
+    }, 
+    {
+        "module": "drivers/SerialBase.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 703
+        }
+    }, 
+    {
+        "module": "drivers/Ticker.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 232
+        }
+    }, 
+    {
+        "module": "drivers/Timeout.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 161
+        }
+    }, 
+    {
+        "module": "drivers/TimerEvent.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 168
+        }
+    }, 
+    {
+        "module": "drivers/UARTSerial.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 20
+        }
+    }, 
+    {
+        "module": "hal/LowPowerTickerWrapper.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 1072
+        }
+    }, 
+    {
+        "module": "hal/mbed_critical_section_api.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 2, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 168
+        }
+    }, 
+    {
+        "module": "hal/mbed_gpio.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 76
+        }
+    }, 
+    {
+        "module": "hal/mbed_lp_ticker_api.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 64, 
+            ".data": 4, 
+            ".bss-delta": 0, 
+            ".text": 64
+        }
+    }, 
+    {
+        "module": "hal/mbed_lp_ticker_wrapper.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 117, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 240
+        }
+    }, 
+    {
+        "module": "hal/mbed_pinmap_common.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 254
+        }
+    }, 
+    {
+        "module": "hal/mbed_ticker_api.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 1221
+        }
+    }, 
+    {
+        "module": "hal/mbed_us_ticker_api.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 64, 
+            ".data": 4, 
+            ".bss-delta": 0, 
+            ".text": 68
+        }
+    }, 
+    {
+        "module": "hal/mpu", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 170
+        }
+    }, 
+    {
+        "module": "main.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 701, 
+            ".data": 4, 
+            ".bss-delta": -50, 
+            ".text": 374
+        }
+    }, 
+    {
+        "module": "platform/CThunkBase.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 4, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 16
+        }
+    }, 
+    {
+        "module": "platform/FileBase.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 56, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 330
+        }
+    }, 
+    {
+        "module": "platform/FileHandle.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 138
+        }
+    }, 
+    {
+        "module": "platform/FilePath.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 213
+        }
+    }, 
+    {
+        "module": "platform/Stream.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 580
+        }
+    }, 
+    {
+        "module": "platform/mbed_alloc_wrappers.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 16
+        }
+    }, 
+    {
+        "module": "platform/mbed_assert.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 32
+        }
+    }, 
+    {
+        "module": "platform/mbed_board.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 207
+        }
+    }, 
+    {
+        "module": "platform/mbed_critical.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 4, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 248
+        }
+    }, 
+    {
+        "module": "platform/mbed_error.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 114, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 1141
+        }
+    }, 
+    {
+        "module": "platform/mbed_retarget.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 64, 
+            ".data": 260, 
+            ".bss-delta": 0, 
+            ".text": 1891
+        }
+    }, 
+    {
+        "module": "platform/mbed_sleep_manager.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 2, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 231
+        }
+    }, 
+    {
+        "module": "platform/mbed_wait_api_rtos.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 128
+        }
+    }, 
+    {
+        "module": "rtos/Mutex.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 290
+        }
+    }, 
+    {
+        "module": "rtos/TARGET_CORTEX", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 6285, 
+            ".data": 168, 
+            ".bss-delta": 0, 
+            ".text": 8155
+        }
+    }, 
+    {
+        "module": "targets/TARGET_STM", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 733, 
+            ".data": 4, 
+            ".bss-delta": 0, 
+            ".text": 11496
+        }
+    }, 
+    {
+        "summary": {
+            "static_ram": 11504, 
+            "total_flash_delta": 0, 
+            "static_ram_delta": -48, 
+            "total_flash": 66582
+        }
+    }
+]

@@ -1,0 +1,16 @@
+{
+    "flags": [
+        "-x", 
+        "assembler-with-cpp"
+    ], 
+    "macros": [], 
+    "symbols": [
+        "ARM_MATH_CM4", 
+        "MBED_TICKLESS", 
+        "TRANSACTION_QUEUE_SIZE_SPI=2", 
+        "__CMSIS_RTOS", 
+        "__CORTEX_M4", 
+        "__FPU_PRESENT=1", 
+        "__MBED_CMSIS_RTOS_CM"
+    ]
+}
