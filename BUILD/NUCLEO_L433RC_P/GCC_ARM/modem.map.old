@@ -29927,6 +29927,7 @@ Discarded input sections
                 0x0000000000000000       0x12 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/main.o
  .rodata._ZZN4mbed8CallbackIFvvEE8generateIPS1_EEvRKT_E3ops
                 0x0000000000000000        0xc BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/main.o
+ .bss.buff      0x0000000000000000       0x32 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/main.o
  .bss.buff_ind  0x0000000000000000        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/main.o
  .group         0x0000000000000000        0x8 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/ATCmdParser.o
  .text          0x0000000000000000        0x0 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/ATCmdParser.o
@@ -39488,7 +39489,7 @@ LOAD /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi
 .igot.plt       0x0000000020000d08        0x0 load address 0x00000000080103a8
  .igot.plt      0x0000000020000d08        0x0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
 
-.bss            0x0000000020000d08     0x21a0 load address 0x00000000080103a8
+.bss            0x0000000020000d08     0x2170 load address 0x00000000080103a8
                 0x0000000020000d08                . = ALIGN (0x8)
                 0x0000000020000d08                __bss_start__ = .
                 0x0000000020000d08                _sbss = .
@@ -39511,180 +39512,178 @@ LOAD /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi
  .bss._ZL4init  0x0000000020000e48        0x1 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_lp_ticker_wrapper.o
  *fill*         0x0000000020000e49        0x7 
  .bss.events    0x0000000020000e50       0x40 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_us_ticker_api.o
- .bss.buff      0x0000000020000e90       0x32 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/main.o
-                0x0000000020000e90                buff
- .bss.data_rdy  0x0000000020000ec2        0x1 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/main.o
-                0x0000000020000ec2                data_rdy
- *fill*         0x0000000020000ec3        0x1 
- .bss.led1      0x0000000020000ec4       0x1c BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/main.o
-                0x0000000020000ec4                led1
- .bss.modem     0x0000000020000ee0       0xb0 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/main.o
-                0x0000000020000ee0                modem
+ .bss.data_rdy  0x0000000020000e90        0x1 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/main.o
+                0x0000000020000e90                data_rdy
+ *fill*         0x0000000020000e91        0x3 
+ .bss.led1      0x0000000020000e94       0x1c BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/main.o
+                0x0000000020000e94                led1
+ .bss.modem     0x0000000020000eb0       0xb0 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/main.o
+                0x0000000020000eb0                modem
  .bss.modem_buff
-                0x0000000020000f90      0x104 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/main.o
-                0x0000000020000f90                modem_buff
- .bss.pc        0x0000000020001094       0xec BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/main.o
-                0x0000000020001094                pc
+                0x0000000020000f60      0x104 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/main.o
+                0x0000000020000f60                modem_buff
+ .bss.pc        0x0000000020001064       0xec BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/main.o
+                0x0000000020001064                pc
  .bss._ZN10CThunkBase17_cthunk_free_realE
-                0x0000000020001180        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/CThunkBase.o
-                0x0000000020001180                CThunkBase::_cthunk_free_real
+                0x0000000020001150        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/CThunkBase.o
+                0x0000000020001150                CThunkBase::_cthunk_free_real
  .bss._ZN4mbed8FileBase5_headE
-                0x0000000020001184        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/FileBase.o
-                0x0000000020001184                mbed::FileBase::_head
+                0x0000000020001154        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/FileBase.o
+                0x0000000020001154                mbed::FileBase::_head
  .bss._ZN4mbed8FileBase6_mutexE
-                0x0000000020001188       0x30 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/FileBase.o
-                0x0000000020001188                mbed::FileBase::_mutex
+                0x0000000020001158       0x30 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/FileBase.o
+                0x0000000020001158                mbed::FileBase::_mutex
  .bss._ZN4mbed8FileBase8_defaultE
-                0x00000000200011b8        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/FileBase.o
-                0x00000000200011b8                mbed::FileBase::_default
+                0x0000000020001188        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/FileBase.o
+                0x0000000020001188                mbed::FileBase::_default
  .bss.critical_section_reentrancy_counter
-                0x00000000200011bc        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_critical.o
+                0x000000002000118c        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_critical.o
  .bss.error_count
-                0x00000000200011c0        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_error.o
+                0x0000000020001190        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_error.o
  .bss.error_hook
-                0x00000000200011c4        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_error.o
+                0x0000000020001194        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_error.o
  .bss.error_in_progress
-                0x00000000200011c8        0x1 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_error.o
- *fill*         0x00000000200011c9        0x3 
+                0x0000000020001198        0x1 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_error.o
+ *fill*         0x0000000020001199        0x3 
  .bss.first_error_ctx
-                0x00000000200011cc       0x34 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_error.o
+                0x000000002000119c       0x34 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_error.o
  .bss.halt_in_progress
-                0x0000000020001200        0x1 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_error.o
- *fill*         0x0000000020001201        0x3 
+                0x00000000200011d0        0x1 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_error.o
+ *fill*         0x00000000200011d1        0x3 
  .bss.last_error_ctx
-                0x0000000020001204       0x34 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_error.o
+                0x00000000200011d4       0x34 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_error.o
  .bss._ZGVZL15default_consolevE7console
-                0x0000000020001238        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
- *fill*         0x000000002000123c        0x4 
+                0x0000000020001208        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
+ *fill*         0x000000002000120c        0x4 
  .bss._ZL16filehandle_mutex
-                0x0000000020001240       0x30 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
+                0x0000000020001210       0x30 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
  .bss._ZZL15default_consolevE7console
-                0x0000000020001270        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
+                0x0000000020001240        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
  .bss.mbed_heap_size
-                0x0000000020001274        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
-                0x0000000020001274                mbed_heap_size
+                0x0000000020001244        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
+                0x0000000020001244                mbed_heap_size
  .bss.mbed_heap_start
-                0x0000000020001278        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
-                0x0000000020001278                mbed_heap_start
+                0x0000000020001248        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
+                0x0000000020001248                mbed_heap_start
  .bss.deep_sleep_lock
-                0x000000002000127c        0x2 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_sleep_manager.o
- *fill*         0x000000002000127e        0x2 
+                0x000000002000124c        0x2 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_sleep_manager.o
+ *fill*         0x000000002000124e        0x2 
  .bss.env_mutex_attr
-                0x0000000020001280       0x10 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/TOOLCHAIN_GCC_ARM/mbed_boot_gcc_arm.o
+                0x0000000020001250       0x10 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/TOOLCHAIN_GCC_ARM/mbed_boot_gcc_arm.o
  .bss.env_mutex_id
-                0x0000000020001290        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/TOOLCHAIN_GCC_ARM/mbed_boot_gcc_arm.o
+                0x0000000020001260        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/TOOLCHAIN_GCC_ARM/mbed_boot_gcc_arm.o
  .bss.env_mutex_obj
-                0x0000000020001294       0x1c BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/TOOLCHAIN_GCC_ARM/mbed_boot_gcc_arm.o
+                0x0000000020001264       0x1c BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/TOOLCHAIN_GCC_ARM/mbed_boot_gcc_arm.o
  .bss.malloc_mutex_attr
-                0x00000000200012b0       0x10 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/TOOLCHAIN_GCC_ARM/mbed_boot_gcc_arm.o
+                0x0000000020001280       0x10 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/TOOLCHAIN_GCC_ARM/mbed_boot_gcc_arm.o
  .bss.malloc_mutex_id
-                0x00000000200012c0        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/TOOLCHAIN_GCC_ARM/mbed_boot_gcc_arm.o
+                0x0000000020001290        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/TOOLCHAIN_GCC_ARM/mbed_boot_gcc_arm.o
  .bss.malloc_mutex_obj
-                0x00000000200012c4       0x1c BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/TOOLCHAIN_GCC_ARM/mbed_boot_gcc_arm.o
+                0x0000000020001294       0x1c BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/TOOLCHAIN_GCC_ARM/mbed_boot_gcc_arm.o
  .bss.mbed_stack_isr_size
-                0x00000000200012e0        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/mbed_boot.o
-                0x00000000200012e0                mbed_stack_isr_size
+                0x00000000200012b0        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/mbed_boot.o
+                0x00000000200012b0                mbed_stack_isr_size
  .bss.mbed_stack_isr_start
-                0x00000000200012e4        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/mbed_boot.o
-                0x00000000200012e4                mbed_stack_isr_start
+                0x00000000200012b4        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/mbed_boot.o
+                0x00000000200012b4                mbed_stack_isr_start
  .bss.terminate_hook
-                0x00000000200012e8        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/mbed_rtx_handlers.o
- *fill*         0x00000000200012ec        0x4 
+                0x00000000200012b8        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/mbed_rtx_handlers.o
+ *fill*         0x00000000200012bc        0x4 
  .bss._ZL13os_timer_data
-                0x00000000200012f0       0x38 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/mbed_rtx_idle.o
+                0x00000000200012c0       0x38 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/mbed_rtx_idle.o
  .bss._ZL8os_timer
-                0x0000000020001328        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/mbed_rtx_idle.o
- .bss.os        0x000000002000132c       0x40 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
+                0x00000000200012f8        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/mbed_rtx_idle.o
+ .bss.os        0x00000000200012fc       0x40 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
  .bss.os.msgqueue.cb
-                0x000000002000136c       0x34 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
+                0x000000002000133c       0x34 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
  .bss.os.msgqueue.mem
-                0x00000000200013a0       0x50 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
+                0x0000000020001370       0x50 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
  .bss.os.thread.cb
-                0x00000000200013f0       0x88 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
+                0x00000000200013c0       0x88 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
  .bss.os.thread.stack
-                0x0000000020001478      0x600 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
- .bss.PendST    0x0000000020001a78        0x1 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/Source/os_systick.o
- *fill*         0x0000000020001a79        0x3 
+                0x0000000020001448      0x600 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
+ .bss.PendST    0x0000000020001a48        0x1 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/Source/os_systick.o
+ *fill*         0x0000000020001a49        0x3 
  .bss.irq_handler
-                0x0000000020001a7c        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/serial_device.o
+                0x0000000020001a4c        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/serial_device.o
  .bss.serial_irq_ids
-                0x0000000020001a80       0x10 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/serial_device.o
-                0x0000000020001a80                serial_irq_ids
+                0x0000000020001a50       0x10 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/serial_device.o
+                0x0000000020001a50                serial_irq_ids
  .bss.can_irq_ids
-                0x0000000020001a90        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/can_api.o
+                0x0000000020001a60        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/can_api.o
  .bss.irq_handler
-                0x0000000020001a94        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/can_api.o
+                0x0000000020001a64        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/can_api.o
  .bss.LPTICKER_inited
-                0x0000000020001a98        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/lp_ticker.o
+                0x0000000020001a68        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/lp_ticker.o
  .bss.irq_handler
-                0x0000000020001a9c        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/lp_ticker.o
- .bss.lp_Fired  0x0000000020001aa0        0x1 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/lp_ticker.o
-                0x0000000020001aa0                lp_Fired
- *fill*         0x0000000020001aa1        0x3 
+                0x0000000020001a6c        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/lp_ticker.o
+ .bss.lp_Fired  0x0000000020001a70        0x1 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/lp_ticker.o
+                0x0000000020001a70                lp_Fired
+ *fill*         0x0000000020001a71        0x3 
  .bss.mbed_sdk_inited
-                0x0000000020001aa4        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/mbed_overrides.o
-                0x0000000020001aa4                mbed_sdk_inited
+                0x0000000020001a74        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/mbed_overrides.o
+                0x0000000020001a74                mbed_sdk_inited
  .bss.stdio_uart_inited
-                0x0000000020001aa8        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/serial_api.o
-                0x0000000020001aa8                stdio_uart_inited
+                0x0000000020001a78        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/serial_api.o
+                0x0000000020001a78                stdio_uart_inited
  .bss.__malloc_current_mallinfo
-                0x0000000020001aac       0x28 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mallocr.o)
-                0x0000000020001aac                __malloc_current_mallinfo
+                0x0000000020001a7c       0x28 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mallocr.o)
+                0x0000000020001a7c                __malloc_current_mallinfo
  .bss.__malloc_max_sbrked_mem
-                0x0000000020001ad4        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mallocr.o)
-                0x0000000020001ad4                __malloc_max_sbrked_mem
+                0x0000000020001aa4        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mallocr.o)
+                0x0000000020001aa4                __malloc_max_sbrked_mem
  .bss.__malloc_max_total_mem
-                0x0000000020001ad8        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mallocr.o)
-                0x0000000020001ad8                __malloc_max_total_mem
+                0x0000000020001aa8        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mallocr.o)
+                0x0000000020001aa8                __malloc_max_total_mem
  .bss.__malloc_top_pad
-                0x0000000020001adc        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mallocr.o)
-                0x0000000020001adc                __malloc_top_pad
+                0x0000000020001aac        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mallocr.o)
+                0x0000000020001aac                __malloc_top_pad
  *(COMMON)
- COMMON         0x0000000020001ae0       0x54 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/cmsis/TARGET_CORTEX_M/mbed_fault_handler.o
-                0x0000000020001ae0                fault_context
- *fill*         0x0000000020001b34        0x4 
- COMMON         0x0000000020001b38     0x1098 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/mbed_rtos_rtx.o
-                0x0000000020001b38                singleton_mutex_obj
-                0x0000000020001b54                singleton_mutex_attr
-                0x0000000020001b64                _main_thread_attr
-                0x0000000020001b88                singleton_mutex_id
-                0x0000000020001b8c                _main_obj
-                0x0000000020001bd0                _main_stack
- COMMON         0x0000000020002bd0      0x1e0 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/serial_device.o
-                0x0000000020002bd0                uart_handlers
- COMMON         0x0000000020002db0       0x38 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/lp_ticker.o
-                0x0000000020002db0                LptimHandle
- COMMON         0x0000000020002de8       0x4c BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/serial_api.o
-                0x0000000020002de8                stdio_uart
- COMMON         0x0000000020002e34       0x4c BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/us_ticker.o
-                0x0000000020002e34                TimMasterHandle
-                0x0000000020002e74                timer_cnt_reg
-                0x0000000020002e78                timer_dier_reg
-                0x0000000020002e7c                timer_ccr1_reg
- COMMON         0x0000000020002e80       0x21 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-lock.o)
-                0x0000000020002e80                __lock___sinit_recursive_mutex
-                0x0000000020002e84                __lock___tz_mutex
-                0x0000000020002e88                __lock___env_recursive_mutex
-                0x0000000020002e8c                __lock___sfp_recursive_mutex
-                0x0000000020002e90                __lock___arc4random_mutex
-                0x0000000020002e94                __lock___atexit_recursive_mutex
-                0x0000000020002e98                __lock___dd_hash_mutex
-                0x0000000020002e9c                __lock___malloc_recursive_mutex
-                0x0000000020002ea0                __lock___at_quick_exit_mutex
- *fill*         0x0000000020002ea1        0x3 
- COMMON         0x0000000020002ea4        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-reent.o)
-                0x0000000020002ea4                errno
-                0x0000000020002ea8                . = ALIGN (0x8)
-                0x0000000020002ea8                __bss_end__ = .
-                0x0000000020002ea8                _ebss = .
+ COMMON         0x0000000020001ab0       0x54 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/cmsis/TARGET_CORTEX_M/mbed_fault_handler.o
+                0x0000000020001ab0                fault_context
+ *fill*         0x0000000020001b04        0x4 
+ COMMON         0x0000000020001b08     0x1098 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/mbed_rtos_rtx.o
+                0x0000000020001b08                singleton_mutex_obj
+                0x0000000020001b24                singleton_mutex_attr
+                0x0000000020001b34                _main_thread_attr
+                0x0000000020001b58                singleton_mutex_id
+                0x0000000020001b5c                _main_obj
+                0x0000000020001ba0                _main_stack
+ COMMON         0x0000000020002ba0      0x1e0 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/serial_device.o
+                0x0000000020002ba0                uart_handlers
+ COMMON         0x0000000020002d80       0x38 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/lp_ticker.o
+                0x0000000020002d80                LptimHandle
+ COMMON         0x0000000020002db8       0x4c BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/serial_api.o
+                0x0000000020002db8                stdio_uart
+ COMMON         0x0000000020002e04       0x4c BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/us_ticker.o
+                0x0000000020002e04                TimMasterHandle
+                0x0000000020002e44                timer_cnt_reg
+                0x0000000020002e48                timer_dier_reg
+                0x0000000020002e4c                timer_ccr1_reg
+ COMMON         0x0000000020002e50       0x21 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-lock.o)
+                0x0000000020002e50                __lock___sinit_recursive_mutex
+                0x0000000020002e54                __lock___tz_mutex
+                0x0000000020002e58                __lock___env_recursive_mutex
+                0x0000000020002e5c                __lock___sfp_recursive_mutex
+                0x0000000020002e60                __lock___arc4random_mutex
+                0x0000000020002e64                __lock___atexit_recursive_mutex
+                0x0000000020002e68                __lock___dd_hash_mutex
+                0x0000000020002e6c                __lock___malloc_recursive_mutex
+                0x0000000020002e70                __lock___at_quick_exit_mutex
+ *fill*         0x0000000020002e71        0x3 
+ COMMON         0x0000000020002e74        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-reent.o)
+                0x0000000020002e74                errno
+                0x0000000020002e78                . = ALIGN (0x8)
+                0x0000000020002e78                __bss_end__ = .
+                0x0000000020002e78                _ebss = .
 
-.heap           0x0000000020002ea8        0x0
-                0x0000000020002ea8                __end__ = .
-                0x0000000020002ea8                end = __end__
+.heap           0x0000000020002e78        0x0
+                0x0000000020002e78                __end__ = .
+                0x0000000020002e78                end = __end__
  *(.heap*)
-                0x0000000020002ea8                __HeapLimit = .
+                0x0000000020002e78                __HeapLimit = .
 
-.stack_dummy    0x0000000020002ea8        0x0
+.stack_dummy    0x0000000020002e78        0x0
  *(.stack*)
                 0x0000000020010000                __StackTop = (ORIGIN (SRAM1) + LENGTH (SRAM1))
                 0x0000000020010000                _estack = __StackTop
