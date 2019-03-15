@@ -100,4 +100,22 @@ typedef struct s_state_t
   char resp_esperada[30];
 } s_state_t;
 
+class Sim800c
+{
+private:
+  /* data */
+  RawSerial module;
+
+public:
+  rxBuffer rxBuff;
+  error_modem_t error_modem;
+  s_state_t s_state;
+  Sim800c(PinName tx, PinName rx) : module(tx, rx){};
+  ~Sim800c();
+};
+
+Sim800c::~Sim800c()
+{
+}
+
 #endif
