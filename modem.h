@@ -14,23 +14,6 @@ struct rxBuffer
   void clear();
 };
 
-//TODO: agregar evento de buffer lleno y notificar al thread ppal.
-void rxBuffer::add_c(char c)
-{
-  if (rxBuffer::ind < MAX_LENGTH_RX_BUFF)
-  {
-    rxBuffer::buff[rxBuffer::ind] = c;
-    rxBuffer::ind++;
-  }
-  rxBuffer::new_data = true;
-}
-
-void rxBuffer::clear()
-{
-  memset((char *)rxBuffer::buff, '\0', MAX_LENGTH_RX_BUFF);
-  rxBuffer::ind = 0;
-}
-
 typedef enum error_modem_t
 {
   ERROR_MDM = 0,
@@ -104,18 +87,55 @@ class Sim800c
 {
 private:
   /* data */
-  RawSerial module;
+  uint16_t count_intentos = 0;
 
 public:
   rxBuffer rxBuff;
+  RawSerial module;
   error_modem_t error_modem;
   s_state_t s_state;
+  char m_imei[20];
+  int m_rssi;
+  char timestamp[30];
+  void (*callback)();
   Sim800c(PinName tx, PinName rx) : module(tx, rx){};
+  void begin(uint16_t baud);
+  void set_request(request_t req, void (*data)())
+  {
+    error_modem = BUSY_MDM;
+    callback = NULL;
+    count_intentos = 0;
+    switch (req)
+    {
+    case modem_begin:
+      s_state.estado_actual = inicio;
+      break;
+    case modem_getcclk:
+      callback = data;
+      s_state.estado_actual = fecha_hora;
+      break;
+    case modem_getimei:
+      callback = data;
+      s_state.estado_actual = imei;
+      break;
+    case modem_getrssi:
+      callback = data;
+      s_state.estado_actual = rssi;
+      break;
+    case modem_off:
+      s_state.estado_actual = apagar_mdm;
+      break;
+    case modem_sendgprs:
+      s_state.estado_actual = http_send_msg_1;
+      break;
+    case modem_download_ftp:
+      s_state.estado_actual = download_ftp_1;
+      break;
+    default:
+      break;
+    }
+  }
   ~Sim800c();
 };
-
-Sim800c::~Sim800c()
-{
-}
 
 #endif
