@@ -3,7 +3,11 @@
 
 #include "mbed.h"
 
-const uint16_t MAX_LENGTH_RX_BUFF = 255;
+// const uint16_t MAX_LENGTH_RX_BUFF = 255;
+#define MAX_INTENTOS_MDM 5
+#define MAX_LENGTH_RX_BUFF 255
+#define APN_NAME "\"antel.lte\"" //"gprs.ancel"//"prepago.ancel"//"cuenca.vpnantel"antel.lte
+#define URL_BASE "http://url/"
 
 struct rxBuffer
 {
@@ -88,10 +92,17 @@ class Sim800c
 private:
   /* data */
   uint16_t count_intentos = 0;
+  void send_msg(const char *msg);
+  void send_break_msg(const char *msg);
+  void flush();
+  Timeout timeout;
+  int largo_respuesta_http; //ver de quitar
+  void timeout_callback();
 
 public:
   rxBuffer rxBuff;
   RawSerial module;
+  volatile bool timeout_flag = false;
   error_modem_t error_modem;
   s_state_t s_state;
   char m_imei[20];
@@ -100,6 +111,7 @@ public:
   void (*callback)();
   Sim800c(PinName tx, PinName rx) : module(tx, rx){};
   void begin(uint16_t baud);
+  void task();
   void set_request(request_t req, void (*data)())
   {
     error_modem = BUSY_MDM;
