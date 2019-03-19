@@ -37404,7 +37404,7 @@ END GROUP
 LOAD /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/crtend.o
 LOAD /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/crtn.o
 
-.text           0x0000000008000000    0x10a80
+.text           0x0000000008000000    0x10c20
  *(.isr_vector)
  .isr_vector    0x0000000008000000      0x18c BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/TARGET_STM32L433xC/device/TOOLCHAIN_GCC_ARM/startup_stm32l433xx.o
                 0x0000000008000000                g_pfnVectors
@@ -38833,355 +38833,357 @@ LOAD /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi
  .text._ZN7Sim800c8send_msgEPKc
                 0x0000000008006fac       0x28 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
                 0x0000000008006fac                Sim800c::send_msg(char const*)
+ .text._ZN7Sim800c14send_break_msgEPKc
+                0x0000000008006fd4       0x18 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+                0x0000000008006fd4                Sim800c::send_break_msg(char const*)
  .text._ZN4mbed6Ticker6attachENS_8CallbackIFvvEEEf
-                0x0000000008006fd4       0x4c BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
-                0x0000000008006fd4                mbed::Ticker::attach(mbed::Callback<void ()>, float)
+                0x0000000008006fec       0x4c BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+                0x0000000008006fec                mbed::Ticker::attach(mbed::Callback<void ()>, float)
  .text._ZN7Sim800cD2Ev
-                0x0000000008007020       0x2c BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
-                0x0000000008007020                Sim800c::~Sim800c()
-                0x0000000008007020                Sim800c::~Sim800c()
+                0x0000000008007038       0x2c BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+                0x0000000008007038                Sim800c::~Sim800c()
+                0x0000000008007038                Sim800c::~Sim800c()
  .text._ZN7Sim800c5beginEt
-                0x000000000800704c       0x44 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
-                0x000000000800704c                Sim800c::begin(unsigned short)
+                0x0000000008007064       0x44 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+                0x0000000008007064                Sim800c::begin(unsigned short)
  .text._ZN7Sim800c4taskEv
-                0x0000000008007090      0x498 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
-                0x0000000008007090                Sim800c::task()
- .text.atoi     0x0000000008007528        0x8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-atoi.o)
-                0x0000000008007528                atoi
+                0x00000000080070a8      0x598 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+                0x00000000080070a8                Sim800c::task()
+ .text.atoi     0x0000000008007640        0x8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-atoi.o)
+                0x0000000008007640                atoi
  .text._calloc_r
-                0x0000000008007530       0x68 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-callocr.o)
-                0x0000000008007530                _calloc_r
- .text.__errno  0x0000000008007598        0xc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-errno.o)
-                0x0000000008007598                __errno
+                0x0000000008007648       0x68 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-callocr.o)
+                0x0000000008007648                _calloc_r
+ .text.__errno  0x00000000080076b0        0xc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-errno.o)
+                0x00000000080076b0                __errno
  .text._fclose_r
-                0x00000000080075a4       0xd0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fclose.o)
-                0x00000000080075a4                _fclose_r
- .text.fclose   0x0000000008007674       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fclose.o)
-                0x0000000008007674                fclose
+                0x00000000080076bc       0xd0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fclose.o)
+                0x00000000080076bc                _fclose_r
+ .text.fclose   0x000000000800778c       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fclose.o)
+                0x000000000800778c                fclose
  .text.__sflush_r
-                0x0000000008007684      0x154 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fflush.o)
-                0x0000000008007684                __sflush_r
+                0x000000000800779c      0x154 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fflush.o)
+                0x000000000800779c                __sflush_r
  .text._fflush_r
-                0x00000000080077d8       0x5c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fflush.o)
-                0x00000000080077d8                _fflush_r
- .text.fflush   0x0000000008007834       0x24 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fflush.o)
-                0x0000000008007834                fflush
- .text.std      0x0000000008007858       0x50 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-findfp.o)
+                0x00000000080078f0       0x5c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fflush.o)
+                0x00000000080078f0                _fflush_r
+ .text.fflush   0x000000000800794c       0x24 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fflush.o)
+                0x000000000800794c                fflush
+ .text.std      0x0000000008007970       0x50 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-findfp.o)
  .text._cleanup_r
-                0x00000000080078a8        0xc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-findfp.o)
-                0x00000000080078a8                _cleanup_r
+                0x00000000080079c0        0xc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-findfp.o)
+                0x00000000080079c0                _cleanup_r
  .text.__sfmoreglue
-                0x00000000080078b4       0x30 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-findfp.o)
-                0x00000000080078b4                __sfmoreglue
- .text.__sinit  0x00000000080078e4       0x58 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-findfp.o)
-                0x00000000080078e4                __sinit
- .text.__sfp    0x000000000800793c       0xa4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-findfp.o)
-                0x000000000800793c                __sfp
+                0x00000000080079cc       0x30 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-findfp.o)
+                0x00000000080079cc                __sfmoreglue
+ .text.__sinit  0x00000000080079fc       0x58 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-findfp.o)
+                0x00000000080079fc                __sinit
+ .text.__sfp    0x0000000008007a54       0xa4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-findfp.o)
+                0x0000000008007a54                __sfp
  .text.__sfp_lock_acquire
-                0x00000000080079e0        0xc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-findfp.o)
-                0x00000000080079e0                __sfp_lock_acquire
+                0x0000000008007af8        0xc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-findfp.o)
+                0x0000000008007af8                __sfp_lock_acquire
  .text.__sfp_lock_release
-                0x00000000080079ec        0xc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-findfp.o)
-                0x00000000080079ec                __sfp_lock_release
+                0x0000000008007b04        0xc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-findfp.o)
+                0x0000000008007b04                __sfp_lock_release
  .text._fopen_r
-                0x00000000080079f8       0xc0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fopen.o)
-                0x00000000080079f8                _fopen_r
- .text.fopen    0x0000000008007ab8       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fopen.o)
-                0x0000000008007ab8                fopen
+                0x0000000008007b10       0xc0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fopen.o)
+                0x0000000008007b10                _fopen_r
+ .text.fopen    0x0000000008007bd0       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fopen.o)
+                0x0000000008007bd0                fopen
  .text._malloc_trim_r
-                0x0000000008007ac8       0xa0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-freer.o)
-                0x0000000008007ac8                _malloc_trim_r
- .text._free_r  0x0000000008007b68      0x1e8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-freer.o)
-                0x0000000008007b68                _free_r
+                0x0000000008007be0       0xa0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-freer.o)
+                0x0000000008007be0                _malloc_trim_r
+ .text._free_r  0x0000000008007c80      0x1e8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-freer.o)
+                0x0000000008007c80                _free_r
  .text._fseek_r
-                0x0000000008007d50        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fseek.o)
-                0x0000000008007d50                _fseek_r
- .text.fseek    0x0000000008007d54       0x18 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fseek.o)
-                0x0000000008007d54                fseek
+                0x0000000008007e68        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fseek.o)
+                0x0000000008007e68                _fseek_r
+ .text.fseek    0x0000000008007e6c       0x18 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fseek.o)
+                0x0000000008007e6c                fseek
  .text._fseeko_r
-                0x0000000008007d6c      0x318 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fseeko.o)
-                0x0000000008007d6c                _fseeko_r
+                0x0000000008007e84      0x318 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fseeko.o)
+                0x0000000008007e84                _fseeko_r
  .text._fstat_r
-                0x0000000008008084       0x28 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fstatr.o)
-                0x0000000008008084                _fstat_r
+                0x000000000800819c       0x28 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fstatr.o)
+                0x000000000800819c                _fstat_r
  .text.__sfvwrite_r
-                0x00000000080080ac      0x2fc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fvwrite.o)
-                0x00000000080080ac                __sfvwrite_r
- .text._fwalk   0x00000000080083a8       0x4c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fwalk.o)
-                0x00000000080083a8                _fwalk
+                0x00000000080081c4      0x2fc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fvwrite.o)
+                0x00000000080081c4                __sfvwrite_r
+ .text._fwalk   0x00000000080084c0       0x4c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fwalk.o)
+                0x00000000080084c0                _fwalk
  .text._fwalk_reent
-                0x00000000080083f4       0x54 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fwalk.o)
-                0x00000000080083f4                _fwalk_reent
+                0x000000000800850c       0x54 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fwalk.o)
+                0x000000000800850c                _fwalk_reent
  .text.__libc_init_array
-                0x0000000008008448       0x48 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-init.o)
-                0x0000000008008448                __libc_init_array
+                0x0000000008008560       0x48 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-init.o)
+                0x0000000008008560                __libc_init_array
  .text.__locale_mb_cur_max
-                0x0000000008008490       0x1c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-locale.o)
-                0x0000000008008490                __locale_mb_cur_max
+                0x00000000080085a8       0x1c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-locale.o)
+                0x00000000080085a8                __locale_mb_cur_max
  .text.__locale_ctype_ptr_l
-                0x00000000080084ac        0x8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-locale.o)
-                0x00000000080084ac                __locale_ctype_ptr_l
+                0x00000000080085c4        0x8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-locale.o)
+                0x00000000080085c4                __locale_ctype_ptr_l
  .text.__retarget_lock_init_recursive
-                0x00000000080084b4        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-lock.o)
-                0x00000000080084b4                __retarget_lock_init_recursive
+                0x00000000080085cc        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-lock.o)
+                0x00000000080085cc                __retarget_lock_init_recursive
  .text.__retarget_lock_close_recursive
-                0x00000000080084b8        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-lock.o)
-                0x00000000080084b8                __retarget_lock_close_recursive
+                0x00000000080085d0        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-lock.o)
+                0x00000000080085d0                __retarget_lock_close_recursive
  .text.__retarget_lock_acquire_recursive
-                0x00000000080084bc        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-lock.o)
-                0x00000000080084bc                __retarget_lock_acquire_recursive
+                0x00000000080085d4        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-lock.o)
+                0x00000000080085d4                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x00000000080084c0        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-lock.o)
-                0x00000000080084c0                __retarget_lock_release_recursive
+                0x00000000080085d8        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-lock.o)
+                0x00000000080085d8                __retarget_lock_release_recursive
  .text.__swhatbuf_r
-                0x00000000080084c4       0x5c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-makebuf.o)
-                0x00000000080084c4                __swhatbuf_r
+                0x00000000080085dc       0x5c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-makebuf.o)
+                0x00000000080085dc                __swhatbuf_r
  .text.__smakebuf_r
-                0x0000000008008520       0x94 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-makebuf.o)
-                0x0000000008008520                __smakebuf_r
- .text.malloc   0x00000000080085b4       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-malloc.o)
-                0x00000000080085b4                malloc
- .text.free     0x00000000080085c4       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-malloc.o)
-                0x00000000080085c4                free
+                0x0000000008008638       0x94 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-makebuf.o)
+                0x0000000008008638                __smakebuf_r
+ .text.malloc   0x00000000080086cc       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-malloc.o)
+                0x00000000080086cc                malloc
+ .text.free     0x00000000080086dc       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-malloc.o)
+                0x00000000080086dc                free
  .text._malloc_r
-                0x00000000080085d4      0x548 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mallocr.o)
-                0x00000000080085d4                _malloc_r
+                0x00000000080086ec      0x548 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mallocr.o)
+                0x00000000080086ec                _malloc_r
  .text.__ascii_mbtowc
-                0x0000000008008b1c       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mbtowc_r.o)
-                0x0000000008008b1c                __ascii_mbtowc
- *fill*         0x0000000008008b48        0x8 
- .text          0x0000000008008b50       0xa0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-memchr.o)
-                0x0000000008008b50                memchr
- .text.memcmp   0x0000000008008bf0       0x64 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-memcmp.o)
-                0x0000000008008bf0                memcmp
- .text          0x0000000008008c54      0x134 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-memcpy.o)
-                0x0000000008008c54                memcpy
- .text.memmove  0x0000000008008d88       0xc8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-memmove.o)
-                0x0000000008008d88                memmove
- .text.memset   0x0000000008008e50       0x94 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-memset.o)
-                0x0000000008008e50                memset
- .text._open_r  0x0000000008008ee4       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-openr.o)
-                0x0000000008008ee4                _open_r
- .text.printf   0x0000000008008f10       0x28 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-printf.o)
-                0x0000000008008f10                printf
+                0x0000000008008c34       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mbtowc_r.o)
+                0x0000000008008c34                __ascii_mbtowc
+ .text          0x0000000008008c60       0xa0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-memchr.o)
+                0x0000000008008c60                memchr
+ .text.memcmp   0x0000000008008d00       0x64 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-memcmp.o)
+                0x0000000008008d00                memcmp
+ .text          0x0000000008008d64      0x134 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-memcpy.o)
+                0x0000000008008d64                memcpy
+ .text.memmove  0x0000000008008e98       0xc8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-memmove.o)
+                0x0000000008008e98                memmove
+ .text.memset   0x0000000008008f60       0x94 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-memset.o)
+                0x0000000008008f60                memset
+ .text._open_r  0x0000000008008ff4       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-openr.o)
+                0x0000000008008ff4                _open_r
+ .text.printf   0x0000000008009020       0x28 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-printf.o)
+                0x0000000008009020                printf
  .text._realloc_r
-                0x0000000008008f38      0x35c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-reallocr.o)
-                0x0000000008008f38                _realloc_r
- .text.lflush   0x0000000008009294       0x14 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-refill.o)
+                0x0000000008009048      0x35c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-reallocr.o)
+                0x0000000008009048                _realloc_r
+ .text.lflush   0x00000000080093a4       0x14 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-refill.o)
  .text.__srefill_r
-                0x00000000080092a8      0x118 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-refill.o)
-                0x00000000080092a8                __srefill_r
- .text._sbrk_r  0x00000000080093c0       0x24 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-sbrkr.o)
-                0x00000000080093c0                _sbrk_r
- .text.setbuf   0x00000000080093e4       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-setbuf.o)
-                0x00000000080093e4                setbuf
- .text.setvbuf  0x00000000080093f4      0x180 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-setvbuf.o)
-                0x00000000080093f4                setvbuf
- .text.__sread  0x0000000008009574       0x24 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-stdio.o)
-                0x0000000008009574                __sread
+                0x00000000080093b8      0x118 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-refill.o)
+                0x00000000080093b8                __srefill_r
+ .text._sbrk_r  0x00000000080094d0       0x24 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-sbrkr.o)
+                0x00000000080094d0                _sbrk_r
+ .text.setbuf   0x00000000080094f4       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-setbuf.o)
+                0x00000000080094f4                setbuf
+ .text.setvbuf  0x0000000008009504      0x180 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-setvbuf.o)
+                0x0000000008009504                setvbuf
+ .text.__sread  0x0000000008009684       0x24 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-stdio.o)
+                0x0000000008009684                __sread
  .text.__swrite
-                0x0000000008009598       0x3c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-stdio.o)
-                0x0000000008009598                __swrite
- .text.__sseek  0x00000000080095d4       0x20 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-stdio.o)
-                0x00000000080095d4                __sseek
+                0x00000000080096a8       0x3c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-stdio.o)
+                0x00000000080096a8                __swrite
+ .text.__sseek  0x00000000080096e4       0x20 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-stdio.o)
+                0x00000000080096e4                __sseek
  .text.__sclose
-                0x00000000080095f4        0x8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-stdio.o)
-                0x00000000080095f4                __sclose
- .text.strchr   0x00000000080095fc       0xe8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strchr.o)
-                0x00000000080095fc                strchr
- *fill*         0x00000000080096e4       0x1c 
- .text          0x0000000008009700      0x2dc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strcmp.o)
-                0x0000000008009708                strcmp
- .text.strcpy   0x00000000080099dc       0xbc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strcpy.o)
-                0x00000000080099dc                strcpy
- *fill*         0x0000000008009a98       0x28 
- .text          0x0000000008009ac0       0xdc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strlen.o)
-                0x0000000008009ac0                strlen
- .text.strspn   0x0000000008009b9c       0x34 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strspn.o)
-                0x0000000008009b9c                strspn
+                0x0000000008009704        0x8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-stdio.o)
+                0x0000000008009704                __sclose
+ .text.strchr   0x000000000800970c       0xe8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strchr.o)
+                0x000000000800970c                strchr
+ *fill*         0x00000000080097f4        0xc 
+ .text          0x0000000008009800      0x2dc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strcmp.o)
+                0x0000000008009808                strcmp
+ .text.strcpy   0x0000000008009adc       0xbc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strcpy.o)
+                0x0000000008009adc                strcpy
+ *fill*         0x0000000008009b98       0x28 
+ .text          0x0000000008009bc0       0xdc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strlen.o)
+                0x0000000008009bc0                strlen
+ .text.strspn   0x0000000008009c9c       0x34 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strspn.o)
+                0x0000000008009c9c                strspn
  .text.critical_factorization
-                0x0000000008009bd0       0xb4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strstr.o)
+                0x0000000008009cd0       0xb4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strstr.o)
  .text.two_way_long_needle
-                0x0000000008009c84      0x1f8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strstr.o)
- .text.strstr   0x0000000008009e7c      0x1f8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strstr.o)
-                0x0000000008009e7c                strstr
- .text.strtok   0x000000000800a074       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strtok.o)
-                0x000000000800a074                strtok
+                0x0000000008009d84      0x1f8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strstr.o)
+ .text.strstr   0x0000000008009f7c      0x1f8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strstr.o)
+                0x0000000008009f7c                strstr
+ .text.strtok   0x000000000800a174       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strtok.o)
+                0x000000000800a174                strtok
  .text.__strtok_r
-                0x000000000800a084       0x64 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strtok_r.o)
-                0x000000000800a084                __strtok_r
+                0x000000000800a184       0x64 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strtok_r.o)
+                0x000000000800a184                __strtok_r
  .text._strtol_l.isra.0
-                0x000000000800a0e8      0x124 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strtol.o)
- .text.strtol   0x000000000800a20c       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strtol.o)
-                0x000000000800a20c                strtol
+                0x000000000800a1e8      0x124 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strtol.o)
+ .text.strtol   0x000000000800a30c       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strtol.o)
+                0x000000000800a30c                strtol
  .text._svfprintf_r
-                0x000000000800a238     0x1460 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-svfprintf.o)
-                0x000000000800a238                _svfprintf_r
+                0x000000000800a338     0x1460 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-svfprintf.o)
+                0x000000000800a338                _svfprintf_r
  .text.__sprint_r.part.0
-                0x000000000800b698       0x78 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vfiprintf.o)
+                0x000000000800b798       0x78 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vfiprintf.o)
  .text.__sprint_r
-                0x000000000800b710       0x14 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vfiprintf.o)
-                0x000000000800b710                __sprint_r
- *fill*         0x000000000800b724        0x4 
+                0x000000000800b810       0x14 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vfiprintf.o)
+                0x000000000800b810                __sprint_r
+ *fill*         0x000000000800b824        0x4 
  .text._vfprintf_r
-                0x000000000800b728     0x151c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vfprintf.o)
-                0x000000000800b728                _vfprintf_r
+                0x000000000800b828     0x151c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vfprintf.o)
+                0x000000000800b828                _vfprintf_r
  .text.vfprintf
-                0x000000000800cc44       0x18 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vfprintf.o)
-                0x000000000800cc44                vfprintf
+                0x000000000800cd44       0x18 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vfprintf.o)
+                0x000000000800cd44                vfprintf
  .text.__sbprintf
-                0x000000000800cc5c       0x84 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vfprintf.o)
+                0x000000000800cd5c       0x84 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vfprintf.o)
  .text._vsnprintf_r
-                0x000000000800cce0       0x70 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vsnprintf.o)
-                0x000000000800cce0                _vsnprintf_r
+                0x000000000800cde0       0x70 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vsnprintf.o)
+                0x000000000800cde0                _vsnprintf_r
  .text.vsnprintf
-                0x000000000800cd50       0x20 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vsnprintf.o)
-                0x000000000800cd50                vsnprintf
+                0x000000000800ce50       0x20 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vsnprintf.o)
+                0x000000000800ce50                vsnprintf
  .text._vsprintf_r
-                0x000000000800cd70       0x28 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vsprintf.o)
-                0x000000000800cd70                _vsprintf_r
+                0x000000000800ce70       0x28 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vsprintf.o)
+                0x000000000800ce70                _vsprintf_r
  .text.vsprintf
-                0x000000000800cd98       0x18 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vsprintf.o)
-                0x000000000800cd98                vsprintf
+                0x000000000800ce98       0x18 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vsprintf.o)
+                0x000000000800ce98                vsprintf
  .text.__swbuf_r
-                0x000000000800cdb0       0xb0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-wbuf.o)
-                0x000000000800cdb0                __swbuf_r
+                0x000000000800ceb0       0xb0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-wbuf.o)
+                0x000000000800ceb0                __swbuf_r
  .text.__ascii_wctomb
-                0x000000000800ce60       0x1c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-wctomb_r.o)
-                0x000000000800ce60                __ascii_wctomb
+                0x000000000800cf60       0x1c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-wctomb_r.o)
+                0x000000000800cf60                __ascii_wctomb
  .text._write_r
-                0x000000000800ce7c       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-writer.o)
-                0x000000000800ce7c                _write_r
+                0x000000000800cf7c       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-writer.o)
+                0x000000000800cf7c                _write_r
  .text.__swsetup_r
-                0x000000000800cea8       0xcc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-wsetup.o)
-                0x000000000800cea8                __swsetup_r
+                0x000000000800cfa8       0xcc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-wsetup.o)
+                0x000000000800cfa8                __swsetup_r
  .text._close_r
-                0x000000000800cf74       0x24 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-closer.o)
-                0x000000000800cf74                _close_r
- .text.quorem   0x000000000800cf98      0x124 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-dtoa.o)
- *fill*         0x000000000800d0bc        0x4 
- .text._dtoa_r  0x000000000800d0c0      0xdec /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-dtoa.o)
-                0x000000000800d0c0                _dtoa_r
+                0x000000000800d074       0x24 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-closer.o)
+                0x000000000800d074                _close_r
+ .text.quorem   0x000000000800d098      0x124 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-dtoa.o)
+ *fill*         0x000000000800d1bc        0x4 
+ .text._dtoa_r  0x000000000800d1c0      0xdec /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-dtoa.o)
+                0x000000000800d1c0                _dtoa_r
  .text.__sflags
-                0x000000000800deac       0x74 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-flags.o)
-                0x000000000800deac                __sflags
+                0x000000000800dfac       0x74 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-flags.o)
+                0x000000000800dfac                __sflags
  .text.__fputwc
-                0x000000000800df20       0xa0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fputwc.o)
-                0x000000000800df20                __fputwc
+                0x000000000800e020       0xa0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fputwc.o)
+                0x000000000800e020                __fputwc
  .text._fputwc_r
-                0x000000000800dfc0       0x64 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fputwc.o)
-                0x000000000800dfc0                _fputwc_r
+                0x000000000800e0c0       0x64 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fputwc.o)
+                0x000000000800e0c0                _fputwc_r
  .text._isatty_r
-                0x000000000800e024       0x24 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-isattyr.o)
-                0x000000000800e024                _isatty_r
+                0x000000000800e124       0x24 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-isattyr.o)
+                0x000000000800e124                _isatty_r
  .text._localeconv_r
-                0x000000000800e048       0x1c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-localeconv.o)
-                0x000000000800e048                _localeconv_r
+                0x000000000800e148       0x1c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-localeconv.o)
+                0x000000000800e148                _localeconv_r
  .text._lseek_r
-                0x000000000800e064       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-lseekr.o)
-                0x000000000800e064                _lseek_r
- .text._Balloc  0x000000000800e090       0x4c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
-                0x000000000800e090                _Balloc
- .text._Bfree   0x000000000800e0dc       0x14 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
-                0x000000000800e0dc                _Bfree
+                0x000000000800e164       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-lseekr.o)
+                0x000000000800e164                _lseek_r
+ .text._Balloc  0x000000000800e190       0x4c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
+                0x000000000800e190                _Balloc
+ .text._Bfree   0x000000000800e1dc       0x14 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
+                0x000000000800e1dc                _Bfree
  .text.__multadd
-                0x000000000800e0f0       0x80 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
-                0x000000000800e0f0                __multadd
+                0x000000000800e1f0       0x80 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
+                0x000000000800e1f0                __multadd
  .text.__hi0bits
-                0x000000000800e170       0x40 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
-                0x000000000800e170                __hi0bits
+                0x000000000800e270       0x40 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
+                0x000000000800e270                __hi0bits
  .text.__lo0bits
-                0x000000000800e1b0       0x60 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
-                0x000000000800e1b0                __lo0bits
- .text.__i2b    0x000000000800e210       0x14 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
-                0x000000000800e210                __i2b
+                0x000000000800e2b0       0x60 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
+                0x000000000800e2b0                __lo0bits
+ .text.__i2b    0x000000000800e310       0x14 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
+                0x000000000800e310                __i2b
  .text.__multiply
-                0x000000000800e224      0x14c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
-                0x000000000800e224                __multiply
+                0x000000000800e324      0x14c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
+                0x000000000800e324                __multiply
  .text.__pow5mult
-                0x000000000800e370       0xa0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
-                0x000000000800e370                __pow5mult
+                0x000000000800e470       0xa0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
+                0x000000000800e470                __pow5mult
  .text.__lshift
-                0x000000000800e410       0xac /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
-                0x000000000800e410                __lshift
- .text.__mcmp   0x000000000800e4bc       0x38 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
-                0x000000000800e4bc                __mcmp
- .text.__mdiff  0x000000000800e4f4       0xec /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
-                0x000000000800e4f4                __mdiff
- .text.__d2b    0x000000000800e5e0       0xbc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
-                0x000000000800e5e0                __d2b
- .text._read_r  0x000000000800e69c       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-readr.o)
-                0x000000000800e69c                _read_r
+                0x000000000800e510       0xac /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
+                0x000000000800e510                __lshift
+ .text.__mcmp   0x000000000800e5bc       0x38 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
+                0x000000000800e5bc                __mcmp
+ .text.__mdiff  0x000000000800e5f4       0xec /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
+                0x000000000800e5f4                __mdiff
+ .text.__d2b    0x000000000800e6e0       0xbc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
+                0x000000000800e6e0                __d2b
+ .text._read_r  0x000000000800e79c       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-readr.o)
+                0x000000000800e79c                _read_r
  .text.__ssprint_r
-                0x000000000800e6c8       0xf4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-svfiprintf.o)
-                0x000000000800e6c8                __ssprint_r
+                0x000000000800e7c8       0xf4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-svfiprintf.o)
+                0x000000000800e7c8                __ssprint_r
  .text._wcrtomb_r
-                0x000000000800e7bc       0x50 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-wcrtomb.o)
-                0x000000000800e7bc                _wcrtomb_r
- .text          0x000000000800e80c      0x378 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
-                0x000000000800e80c                __aeabi_drsub
-                0x000000000800e814                __aeabi_dsub
-                0x000000000800e814                __subdf3
-                0x000000000800e818                __adddf3
-                0x000000000800e818                __aeabi_dadd
-                0x000000000800ea90                __floatunsidf
-                0x000000000800ea90                __aeabi_ui2d
-                0x000000000800eab0                __aeabi_i2d
-                0x000000000800eab0                __floatsidf
-                0x000000000800ead4                __aeabi_f2d
-                0x000000000800ead4                __extendsfdf2
-                0x000000000800eb18                __aeabi_ul2d
-                0x000000000800eb18                __floatundidf
-                0x000000000800eb28                __floatdidf
-                0x000000000800eb28                __aeabi_l2d
- .text          0x000000000800eb84      0x424 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_muldivdf3.o)
-                0x000000000800eb84                __aeabi_dmul
-                0x000000000800eb84                __muldf3
-                0x000000000800edd8                __divdf3
-                0x000000000800edd8                __aeabi_ddiv
- .text          0x000000000800efa8      0x110 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_cmpdf2.o)
-                0x000000000800efa8                __gedf2
-                0x000000000800efa8                __gtdf2
-                0x000000000800efb0                __ltdf2
-                0x000000000800efb0                __ledf2
-                0x000000000800efb8                __cmpdf2
-                0x000000000800efb8                __eqdf2
-                0x000000000800efb8                __nedf2
-                0x000000000800f034                __aeabi_cdrcmple
-                0x000000000800f044                __aeabi_cdcmple
-                0x000000000800f044                __aeabi_cdcmpeq
-                0x000000000800f054                __aeabi_dcmpeq
-                0x000000000800f068                __aeabi_dcmplt
-                0x000000000800f07c                __aeabi_dcmple
-                0x000000000800f090                __aeabi_dcmpge
-                0x000000000800f0a4                __aeabi_dcmpgt
- .text          0x000000000800f0b8       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_unorddf2.o)
-                0x000000000800f0b8                __aeabi_dcmpun
-                0x000000000800f0b8                __unorddf2
- .text          0x000000000800f0e4       0x50 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_fixdfsi.o)
-                0x000000000800f0e4                __fixdfsi
-                0x000000000800f0e4                __aeabi_d2iz
- .text          0x000000000800f134       0x40 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_fixunsdfsi.o)
-                0x000000000800f134                __aeabi_d2uiz
-                0x000000000800f134                __fixunsdfsi
- .text          0x000000000800f174       0x30 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_aeabi_uldivmod.o)
-                0x000000000800f174                __aeabi_uldivmod
- .text          0x000000000800f1a4       0x48 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_fixunssfdi.o)
-                0x000000000800f1a4                __fixunssfdi
-                0x000000000800f1a4                __aeabi_f2ulz
- .text          0x000000000800f1ec      0x2cc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_udivmoddi4.o)
-                0x000000000800f1ec                __udivmoddi4
- .text          0x000000000800f4b8        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_dvmd_tls.o)
-                0x000000000800f4b8                __aeabi_ldiv0
-                0x000000000800f4b8                __aeabi_idiv0
+                0x000000000800e8bc       0x50 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-wcrtomb.o)
+                0x000000000800e8bc                _wcrtomb_r
+ .text          0x000000000800e90c      0x378 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
+                0x000000000800e90c                __aeabi_drsub
+                0x000000000800e914                __aeabi_dsub
+                0x000000000800e914                __subdf3
+                0x000000000800e918                __adddf3
+                0x000000000800e918                __aeabi_dadd
+                0x000000000800eb90                __floatunsidf
+                0x000000000800eb90                __aeabi_ui2d
+                0x000000000800ebb0                __aeabi_i2d
+                0x000000000800ebb0                __floatsidf
+                0x000000000800ebd4                __aeabi_f2d
+                0x000000000800ebd4                __extendsfdf2
+                0x000000000800ec18                __aeabi_ul2d
+                0x000000000800ec18                __floatundidf
+                0x000000000800ec28                __floatdidf
+                0x000000000800ec28                __aeabi_l2d
+ .text          0x000000000800ec84      0x424 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_muldivdf3.o)
+                0x000000000800ec84                __aeabi_dmul
+                0x000000000800ec84                __muldf3
+                0x000000000800eed8                __divdf3
+                0x000000000800eed8                __aeabi_ddiv
+ .text          0x000000000800f0a8      0x110 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_cmpdf2.o)
+                0x000000000800f0a8                __gedf2
+                0x000000000800f0a8                __gtdf2
+                0x000000000800f0b0                __ltdf2
+                0x000000000800f0b0                __ledf2
+                0x000000000800f0b8                __cmpdf2
+                0x000000000800f0b8                __eqdf2
+                0x000000000800f0b8                __nedf2
+                0x000000000800f134                __aeabi_cdrcmple
+                0x000000000800f144                __aeabi_cdcmple
+                0x000000000800f144                __aeabi_cdcmpeq
+                0x000000000800f154                __aeabi_dcmpeq
+                0x000000000800f168                __aeabi_dcmplt
+                0x000000000800f17c                __aeabi_dcmple
+                0x000000000800f190                __aeabi_dcmpge
+                0x000000000800f1a4                __aeabi_dcmpgt
+ .text          0x000000000800f1b8       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_unorddf2.o)
+                0x000000000800f1b8                __aeabi_dcmpun
+                0x000000000800f1b8                __unorddf2
+ .text          0x000000000800f1e4       0x50 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_fixdfsi.o)
+                0x000000000800f1e4                __fixdfsi
+                0x000000000800f1e4                __aeabi_d2iz
+ .text          0x000000000800f234       0x40 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_fixunsdfsi.o)
+                0x000000000800f234                __aeabi_d2uiz
+                0x000000000800f234                __fixunsdfsi
+ .text          0x000000000800f274       0x30 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_aeabi_uldivmod.o)
+                0x000000000800f274                __aeabi_uldivmod
+ .text          0x000000000800f2a4       0x48 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_fixunssfdi.o)
+                0x000000000800f2a4                __fixunssfdi
+                0x000000000800f2a4                __aeabi_f2ulz
+ .text          0x000000000800f2ec      0x2cc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_udivmoddi4.o)
+                0x000000000800f2ec                __udivmoddi4
+ .text          0x000000000800f5b8        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_dvmd_tls.o)
+                0x000000000800f5b8                __aeabi_ldiv0
+                0x000000000800f5b8                __aeabi_idiv0
  *(.init)
- .init          0x000000000800f4bc        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/crti.o
-                0x000000000800f4bc                _init
- .init          0x000000000800f4c0        0x8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/crtn.o
+ .init          0x000000000800f5bc        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/crti.o
+                0x000000000800f5bc                _init
+ .init          0x000000000800f5c0        0x8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/crtn.o
  *(.fini)
- .fini          0x000000000800f4c8        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/crti.o
-                0x000000000800f4c8                _fini
- .fini          0x000000000800f4cc        0x8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/crtn.o
+ .fini          0x000000000800f5c8        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/crti.o
+                0x000000000800f5c8                _fini
+ .fini          0x000000000800f5cc        0x8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/crtn.o
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -39194,297 +39196,298 @@ LOAD /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi
  *(.dtors)
  *(.rodata*)
  .rodata.mbed_fault_context
-                0x000000000800f4d4        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/cmsis/TARGET_CORTEX_M/mbed_fault_handler.o
-                0x000000000800f4d4                mbed_fault_context
+                0x000000000800f5d4        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/cmsis/TARGET_CORTEX_M/mbed_fault_handler.o
+                0x000000000800f5d4                mbed_fault_context
  .rodata.mbed_fault_handler.str1.1
-                0x000000000800f4d8       0x90 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/cmsis/TARGET_CORTEX_M/mbed_fault_handler.o
+                0x000000000800f5d8       0x90 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/cmsis/TARGET_CORTEX_M/mbed_fault_handler.o
  .rodata.print_context_info.str1.1
-                0x000000000800f568      0x12d BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/cmsis/TARGET_CORTEX_M/mbed_fault_handler.o
- *fill*         0x000000000800f695        0x3 
+                0x000000000800f668      0x12d BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/cmsis/TARGET_CORTEX_M/mbed_fault_handler.o
+ *fill*         0x000000000800f795        0x3 
  .rodata._ZZN4mbed8CallbackIFvvEE8generateIPS1_EEvRKT_E3ops
-                0x000000000800f698        0xc BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/components/802.15.4_RF/atmel-rf-driver/source/NanostackRfPhyAtmel.o
-                0x000000000800f698                void mbed::Callback<void ()>::generate<void (*)()>(void (* const&)())::ops
+                0x000000000800f798        0xc BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/components/802.15.4_RF/atmel-rf-driver/source/NanostackRfPhyAtmel.o
+                0x000000000800f798                void mbed::Callback<void ()>::generate<void (*)()>(void (* const&)())::ops
  .rodata._ZNK12SingletonPtrIN4rtos5MutexEE3getEv.str1.1
-                0x000000000800f6a4       0x36 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/drivers/FlashIAP.o
- *fill*         0x000000000800f6da        0x2 
+                0x000000000800f7a4       0x36 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/drivers/FlashIAP.o
+ *fill*         0x000000000800f7da        0x2 
  .rodata._ZTVN4mbed9RawSerialE
-                0x000000000800f6dc       0x18 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/drivers/RawSerial.o
-                0x000000000800f6dc                vtable for mbed::RawSerial
+                0x000000000800f7dc       0x18 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/drivers/RawSerial.o
+                0x000000000800f7dc                vtable for mbed::RawSerial
  .rodata._ZTVN4mbed6SerialE
-                0x000000000800f6f4       0x90 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/drivers/Serial.o
-                0x000000000800f6f4                vtable for mbed::Serial
+                0x000000000800f7f4       0x90 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/drivers/Serial.o
+                0x000000000800f7f4                vtable for mbed::Serial
  .rodata._ZN4mbed10SerialBase12_irq_handlerEm9SerialIrq.str1.1
-                0x000000000800f784       0x23 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/drivers/SerialBase.o
- *fill*         0x000000000800f7a7        0x1 
+                0x000000000800f884       0x23 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/drivers/SerialBase.o
+ *fill*         0x000000000800f8a7        0x1 
  .rodata._ZTVN4mbed10SerialBaseE
-                0x000000000800f7a8       0x18 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/drivers/SerialBase.o
-                0x000000000800f7a8                vtable for mbed::SerialBase
+                0x000000000800f8a8       0x18 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/drivers/SerialBase.o
+                0x000000000800f8a8                vtable for mbed::SerialBase
  .rodata._ZTVN4mbed6TickerE
-                0x000000000800f7c0       0x14 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/drivers/Ticker.o
-                0x000000000800f7c0                vtable for mbed::Ticker
+                0x000000000800f8c0       0x14 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/drivers/Ticker.o
+                0x000000000800f8c0                vtable for mbed::Ticker
  .rodata._ZN4mbed7Timeout7handlerEv.str1.1
-                0x000000000800f7d4       0x23 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/drivers/Timeout.o
+                0x000000000800f8d4       0x23 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/drivers/Timeout.o
  .rodata._ZTVN4mbed7TimeoutE
-                0x000000000800f7d4       0x14 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/drivers/Timeout.o
-                0x000000000800f7d4                vtable for mbed::Timeout
+                0x000000000800f8d4       0x14 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/drivers/Timeout.o
+                0x000000000800f8d4                vtable for mbed::Timeout
  .rodata._ZTVN4mbed10TimerEventE
-                0x000000000800f7e8       0x14 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/drivers/TimerEvent.o
-                0x000000000800f7e8                vtable for mbed::TimerEvent
+                0x000000000800f8e8       0x14 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/drivers/TimerEvent.o
+                0x000000000800f8e8                vtable for mbed::TimerEvent
  .rodata._ZZN4mbed8CallbackIFvvEE8generateINS2_14method_contextI21LowPowerTickerWrapperMS5_FvvEEEEEvRKT_E3ops
-                0x000000000800f7fc        0xc BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/LowPowerTickerWrapper.o
-                0x000000000800f7fc                void mbed::Callback<void ()>::generate<mbed::Callback<void ()>::method_context<LowPowerTickerWrapper, void (LowPowerTickerWrapper::*)()> >(mbed::Callback<void ()>::method_context<LowPowerTickerWrapper, void (LowPowerTickerWrapper::*)()> const&)::ops
+                0x000000000800f8fc        0xc BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/LowPowerTickerWrapper.o
+                0x000000000800f8fc                void mbed::Callback<void ()>::generate<mbed::Callback<void ()>::method_context<LowPowerTickerWrapper, void (LowPowerTickerWrapper::*)()> >(mbed::Callback<void ()>::method_context<LowPowerTickerWrapper, void (LowPowerTickerWrapper::*)()> const&)::ops
  .rodata._ZN21LowPowerTickerWrapper6_resetEv.str1.1
-                0x000000000800f808       0x48 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/LowPowerTickerWrapper.o
+                0x000000000800f908       0x48 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/LowPowerTickerWrapper.o
  .rodata.hal_critical_section_exit.str1.1
-                0x000000000800f850       0x44 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_critical_section_api.o
+                0x000000000800f950       0x44 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_critical_section_api.o
  .rodata.lp_data
-                0x000000000800f894        0x8 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_lp_ticker_api.o
+                0x000000000800f994        0x8 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_lp_ticker_api.o
  .rodata.lp_interface
-                0x000000000800f89c       0x20 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_lp_ticker_api.o
+                0x000000000800f99c       0x20 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_lp_ticker_api.o
  .rodata._ZL12lp_interface
-                0x000000000800f8bc       0x20 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_lp_ticker_wrapper.o
+                0x000000000800f9bc       0x20 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_lp_ticker_wrapper.o
  .rodata.pinmap_merge.str1.1
-                0x000000000800f8dc       0x11 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_pinmap_common.o
+                0x000000000800f9dc       0x11 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_pinmap_common.o
  .rodata.pinmap_peripheral.str1.1
-                0x000000000800f8ed       0x20 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_pinmap_common.o
+                0x000000000800f9ed       0x20 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_pinmap_common.o
  .rodata.pinmap_pinout.str1.1
-                0x000000000800f90d       0x11 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_pinmap_common.o
+                0x000000000800fa0d       0x11 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_pinmap_common.o
  .rodata.initialize.str1.1
-                0x000000000800f91e       0x11 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_ticker_api.o
+                0x000000000800fa1e       0x11 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_ticker_api.o
                                           0x2 (size before relaxing)
  .rodata.schedule_interrupt.str1.1
-                0x000000000800f91e       0x44 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_ticker_api.o
- *fill*         0x000000000800f962        0x2 
+                0x000000000800fa1e       0x44 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_ticker_api.o
+ *fill*         0x000000000800fa62        0x2 
  .rodata.us_data
-                0x000000000800f964        0x8 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_us_ticker_api.o
+                0x000000000800fa64        0x8 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_us_ticker_api.o
  .rodata.us_interface
-                0x000000000800f96c       0x20 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_us_ticker_api.o
+                0x000000000800fa6c       0x20 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mbed_us_ticker_api.o
  .rodata.mbed_mpu_init.str1.1
-                0x000000000800f98c       0x2e BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mpu/mbed_mpu_v7m.o
+                0x000000000800fa8c       0x2e BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/hal/mpu/mbed_mpu_v7m.o
  .rodata.main.str1.1
-                0x000000000800f9ba       0x2b BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/main.o
+                0x000000000800faba       0x2b BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/main.o
  .rodata._ZN4mbed8FileBase6lookupEPKcj.str1.1
-                0x000000000800f9e5        0x8 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/FileBase.o
- *fill*         0x000000000800f9ed        0x3 
+                0x000000000800fae5        0x8 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/FileBase.o
+ *fill*         0x000000000800faed        0x3 
  .rodata._ZTVN4mbed8FileBaseE
-                0x000000000800f9f0       0x10 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/FileBase.o
-                0x000000000800f9f0                vtable for mbed::FileBase
+                0x000000000800faf0       0x10 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/FileBase.o
+                0x000000000800faf0                vtable for mbed::FileBase
  .rodata._ZTVN4mbed10FileHandleE
-                0x000000000800fa00       0x50 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/FileHandle.o
-                0x000000000800fa00                vtable for mbed::FileHandle
+                0x000000000800fb00       0x50 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/FileHandle.o
+                0x000000000800fb00                vtable for mbed::FileHandle
  .rodata._ZN4mbed8FilePathC2EPKc.str1.1
-                0x000000000800fa50       0x2b BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/FilePath.o
- *fill*         0x000000000800fa7b        0x1 
+                0x000000000800fb50       0x2b BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/FilePath.o
+ *fill*         0x000000000800fb7b        0x1 
  .rodata._ZTVN4mbed8FileLikeE
-                0x000000000800fa7c       0x60 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/Stream.o
-                0x000000000800fa7c                vtable for mbed::FileLike
+                0x000000000800fb7c       0x60 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/Stream.o
+                0x000000000800fb7c                vtable for mbed::FileLike
  .rodata._ZN4mbed6StreamC2EPKc.str1.1
-                0x000000000800fadc       0x16 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/Stream.o
- *fill*         0x000000000800faf2        0x2 
+                0x000000000800fbdc       0x16 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/Stream.o
+ *fill*         0x000000000800fbf2        0x2 
  .rodata._ZTVN4mbed6StreamE
-                0x000000000800faf4       0x70 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/Stream.o
-                0x000000000800faf4                vtable for mbed::Stream
+                0x000000000800fbf4       0x70 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/Stream.o
+                0x000000000800fbf4                vtable for mbed::Stream
  .rodata.ellipsis.14585
-                0x000000000800fb64        0x5 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_board.o
+                0x000000000800fc64        0x5 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_board.o
  .rodata.core_util_critical_section_enter.str1.1
-                0x000000000800fb69       0x54 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_critical.o
+                0x000000000800fc69       0x54 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_critical.o
  .rodata.error.str1.1
-                0x000000000800fbbd       0x15 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_error.o
+                0x000000000800fcbd       0x15 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_error.o
  .rodata.print_error_report.constprop.1.str1.1
-                0x000000000800fbd2      0x1f2 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_error.o
+                0x000000000800fcd2      0x1f2 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_error.o
  .rodata._ZTV12DirectSerial
-                0x000000000800fdc4       0x50 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
-                0x000000000800fdc4                vtable for DirectSerial
+                0x000000000800fec4       0x50 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
+                0x000000000800fec4                vtable for DirectSerial
  .rodata._Znaj.str1.1
-                0x000000000800fe14       0x1f BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
+                0x000000000800ff14       0x1f BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
  .rodata.__cxa_guard_acquire.str1.1
-                0x000000000800fe33       0x4b BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
+                0x000000000800ff33       0x4b BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
  .rodata.__cxa_guard_release.str1.1
-                0x000000000800fe7e       0x3f BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
+                0x000000000800ff7e       0x3f BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
  .rodata.__stderr_name
-                0x000000000800febd        0x8 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
-                0x000000000800febd                __stderr_name
+                0x000000000800ffbd        0x8 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
+                0x000000000800ffbd                __stderr_name
  .rodata.__stdin_name
-                0x000000000800fec5        0x7 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
-                0x000000000800fec5                __stdin_name
+                0x000000000800ffc5        0x7 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
+                0x000000000800ffc5                __stdin_name
  .rodata.__stdout_name
-                0x000000000800fecc        0x8 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
-                0x000000000800fecc                __stdout_name
+                0x000000000800ffcc        0x8 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_retarget.o
+                0x000000000800ffcc                __stdout_name
  .rodata.sleep_manager_lock_deep_sleep_internal.str1.1
-                0x000000000800fed4       0x25 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_sleep_manager.o
+                0x000000000800ffd4       0x25 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_sleep_manager.o
  .rodata.sleep_manager_unlock_deep_sleep_internal.str1.1
-                0x000000000800fef9       0x1e BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_sleep_manager.o
+                0x000000000800fff9       0x1e BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_sleep_manager.o
  .rodata.wait_us.str1.1
-                0x000000000800ff17       0x40 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_wait_api_rtos.o
+                0x0000000008010017       0x40 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/platform/mbed_wait_api_rtos.o
  .rodata._ZN4rtos5Mutex11constructorEPKc.str1.1
-                0x000000000800ff57       0x36 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/Mutex.o
+                0x0000000008010057       0x36 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/Mutex.o
  .rodata._ZN4rtos5Mutex4lockEv.str1.1
-                0x000000000800ff8d       0x12 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/Mutex.o
+                0x000000000801008d       0x12 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/Mutex.o
  .rodata._ZN4rtos5Mutex6unlockEv.str1.1
-                0x000000000800ff9f       0x14 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/Mutex.o
- *fill*         0x000000000800ffb3        0x1 
+                0x000000000801009f       0x14 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/Mutex.o
+ *fill*         0x00000000080100b3        0x1 
  .rodata._ZTVN4rtos8internal8SysTimerE
-                0x000000000800ffb4       0x14 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/SysTimer.o
-                0x000000000800ffb4                vtable for rtos::internal::SysTimer
+                0x00000000080100b4       0x14 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/SysTimer.o
+                0x00000000080100b4                vtable for rtos::internal::SysTimer
  .rodata.mbed_toolchain_init.str1.1
-                0x000000000800ffc8       0x17 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/TOOLCHAIN_GCC_ARM/mbed_boot_gcc_arm.o
+                0x00000000080100c8       0x17 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/TOOLCHAIN_GCC_ARM/mbed_boot_gcc_arm.o
  .rodata.mbed_rtos_start.str1.1
-                0x000000000800ffdf       0x46 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/mbed_rtos_rtx.o
+                0x00000000080100df       0x46 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/mbed_rtos_rtx.o
  .rodata.osRtxErrorNotify.str1.1
-                0x0000000008010025      0x110 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/mbed_rtx_handlers.o
+                0x0000000008010125      0x110 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/mbed_rtx_handlers.o
  .rodata.svcRtxKernelGetInfo.str1.1
-                0x0000000008010135        0xb BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
- .rodata        0x0000000008010140       0xa0 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
-                0x0000000008010140                os_cb_sections
-                0x0000000008010178                osRtxConfig
+                0x0000000008010235        0xb BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
+ .rodata        0x0000000008010240       0xa0 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
+                0x0000000008010240                os_cb_sections
+                0x0000000008010278                osRtxConfig
  .rodata.osRtxUserSVC
-                0x00000000080101e0        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
-                0x00000000080101e0                osRtxUserSVC
+                0x00000000080102e0        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
+                0x00000000080102e0                osRtxUserSVC
  .rodata.os_idle_thread_attr
-                0x00000000080101e4       0x24 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
+                0x00000000080102e4       0x24 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
  .rodata.os_timer_mq_attr
-                0x0000000008010208       0x18 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
+                0x0000000008010308       0x18 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
  .rodata.os_timer_thread_attr
-                0x0000000008010220       0x24 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
+                0x0000000008010320       0x24 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
  .rodata.str1.1
-                0x0000000008010244       0x13 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
+                0x0000000008010344       0x13 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
  .rodata._ZN4rtos10ThisThread9sleep_forEm.str1.1
-                0x0000000008010257        0xf BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/ThisThread.o
+                0x0000000008010357        0xf BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/ThisThread.o
  .rodata._ZN4rtosL14flags_wait_forEmmbm.str1.1
-                0x0000000008010266       0x8e BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/ThisThread.o
+                0x0000000008010366       0x8e BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/ThisThread.o
  .rodata.PinMap_UART_RX
-                0x00000000080102f4       0x84 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/TARGET_STM32L433xC/TARGET_NUCLEO_L433RC_P/PeripheralPins.o
-                0x00000000080102f4                PinMap_UART_RX
+                0x00000000080103f4       0x84 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/TARGET_STM32L433xC/TARGET_NUCLEO_L433RC_P/PeripheralPins.o
+                0x00000000080103f4                PinMap_UART_RX
  .rodata.PinMap_UART_TX
-                0x0000000008010378       0x84 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/TARGET_STM32L433xC/TARGET_NUCLEO_L433RC_P/PeripheralPins.o
-                0x0000000008010378                PinMap_UART_TX
+                0x0000000008010478       0x84 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/TARGET_STM32L433xC/TARGET_NUCLEO_L433RC_P/PeripheralPins.o
+                0x0000000008010478                PinMap_UART_TX
  .rodata.SetSysClock.str1.1
-                0x00000000080103fc       0x14 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/TARGET_STM32L433xC/TARGET_NUCLEO_L433RC_P/system_clock.o
+                0x00000000080104fc       0x14 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/TARGET_STM32L433xC/TARGET_NUCLEO_L433RC_P/system_clock.o
  .rodata.CSWTCH.51
-                0x0000000008010410        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/device/stm32l4xx_hal_uart.o
+                0x0000000008010510        0x4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/device/stm32l4xx_hal_uart.o
  .rodata.CSWTCH.52
-                0x0000000008010414        0xd BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/device/stm32l4xx_hal_uart.o
+                0x0000000008010514        0xd BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/device/stm32l4xx_hal_uart.o
  .rodata.AHBPrescTable
-                0x0000000008010421       0x10 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/device/system_stm32l4xx.o
-                0x0000000008010421                AHBPrescTable
+                0x0000000008010521       0x10 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/device/system_stm32l4xx.o
+                0x0000000008010521                AHBPrescTable
  .rodata.APBPrescTable
-                0x0000000008010431        0x8 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/device/system_stm32l4xx.o
-                0x0000000008010431                APBPrescTable
- *fill*         0x0000000008010439        0x3 
+                0x0000000008010531        0x8 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/device/system_stm32l4xx.o
+                0x0000000008010531                APBPrescTable
+ *fill*         0x0000000008010539        0x3 
  .rodata.MSIRangeTable
-                0x000000000801043c       0x30 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/device/system_stm32l4xx.o
-                0x000000000801043c                MSIRangeTable
+                0x000000000801053c       0x30 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/TARGET_STM32L4/device/system_stm32l4xx.o
+                0x000000000801053c                MSIRangeTable
  .rodata.Set_GPIO_Clock.str1.1
-                0x000000000801046c       0x21 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/gpio_api.o
+                0x000000000801056c       0x21 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/gpio_api.o
  .rodata.gpio_set.str1.1
-                0x000000000801048d       0x3b BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/gpio_api.o
+                0x000000000801058d       0x3b BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/gpio_api.o
  .rodata.info.14859
-                0x00000000080104c8        0x8 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/lp_ticker.o
+                0x00000000080105c8        0x8 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/lp_ticker.o
  .rodata.lp_ticker_init.str1.1
-                0x00000000080104d0       0x50 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/lp_ticker.o
+                0x00000000080105d0       0x50 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/lp_ticker.o
  .rodata.lp_ticker_set_interrupt.str1.1
-                0x0000000008010520       0x65 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/lp_ticker.o
- *fill*         0x0000000008010585        0x3 
+                0x0000000008010620       0x65 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/lp_ticker.o
+ *fill*         0x0000000008010685        0x3 
  .rodata.ll_pin_defines
-                0x0000000008010588       0x40 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/pinmap.o
-                0x0000000008010588                ll_pin_defines
+                0x0000000008010688       0x40 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/pinmap.o
+                0x0000000008010688                ll_pin_defines
  .rodata.pin_function.str1.1
-                0x00000000080105c8       0x26 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/pinmap.o
+                0x00000000080106c8       0x26 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/pinmap.o
                                          0x3b (size before relaxing)
  .rodata.debug.constprop.1.str1.1
-                0x00000000080105ee       0x2a BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/serial_api.o
+                0x00000000080106ee       0x2a BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/serial_api.o
  .rodata.serial_init.str1.1
-                0x0000000008010618       0x8d BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/serial_api.o
+                0x0000000008010718       0x8d BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/serial_api.o
  .rodata.hal_deepsleep.str1.1
-                0x00000000080106a5       0x4d BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/sleep.o
- *fill*         0x00000000080106f2        0x2 
+                0x00000000080107a5       0x4d BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/sleep.o
+ *fill*         0x00000000080107f2        0x2 
  .rodata.info.14923
-                0x00000000080106f4        0x8 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/us_ticker.o
+                0x00000000080107f4        0x8 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/us_ticker.o
  .rodata._ZN7Sim800c4taskEv.str1.1
-                0x00000000080106fc       0xd7 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
-                                         0xe1 (size before relaxing)
+                0x00000000080107fc      0x171 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+                                        0x17d (size before relaxing)
  .rodata._ZN7Sim800c8send_msgEPKc.str1.1
-                0x00000000080107d3       0xd7 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+                0x000000000801096d      0x171 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
                                           0x3 (size before relaxing)
- *fill*         0x00000000080107d3        0x1 
- .rodata._global_impure_ptr
-                0x00000000080107d4        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-impure.o)
-                0x00000000080107d4                _global_impure_ptr
- .rodata._setlocale_r.str1.4
-                0x00000000080107d8        0xa /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-locale.o)
-                                          0xd (size before relaxing)
- *fill*         0x00000000080107e2        0x2 
- .rodata.str1.4
-                0x00000000080107e4        0x2 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-locale.o)
- *fill*         0x00000000080107e6        0x2 
- .rodata._svfprintf_r.str1.4
-                0x00000000080107e8       0x42 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-svfprintf.o)
- *fill*         0x000000000801082a        0x2 
- .rodata.blanks.8551
-                0x000000000801082c       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-svfprintf.o)
- .rodata.zeroes.8552
-                0x000000000801083c       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-svfprintf.o)
- .rodata._vfprintf_r.str1.4
-                0x000000000801084c       0x42 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vfprintf.o)
- .rodata.blanks.8566
-                0x000000000801084c       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vfprintf.o)
- .rodata.zeroes.8567
-                0x000000000801085c       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vfprintf.o)
- .rodata._ctype_
-                0x000000000801086c      0x101 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-ctype_.o)
-                0x000000000801086c                _ctype_
  *fill*         0x000000000801096d        0x3 
+ .rodata._global_impure_ptr
+                0x0000000008010970        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-impure.o)
+                0x0000000008010970                _global_impure_ptr
+ .rodata._setlocale_r.str1.4
+                0x0000000008010974        0xa /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-locale.o)
+                                          0xd (size before relaxing)
+ *fill*         0x000000000801097e        0x2 
+ .rodata.str1.4
+                0x0000000008010980        0x2 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-locale.o)
+ *fill*         0x0000000008010982        0x2 
+ .rodata._svfprintf_r.str1.4
+                0x0000000008010984       0x42 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-svfprintf.o)
+ *fill*         0x00000000080109c6        0x2 
+ .rodata.blanks.8551
+                0x00000000080109c8       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-svfprintf.o)
+ .rodata.zeroes.8552
+                0x00000000080109d8       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-svfprintf.o)
+ .rodata._vfprintf_r.str1.4
+                0x00000000080109e8       0x42 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vfprintf.o)
+ .rodata.blanks.8566
+                0x00000000080109e8       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vfprintf.o)
+ .rodata.zeroes.8567
+                0x00000000080109f8       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vfprintf.o)
+ .rodata._ctype_
+                0x0000000008010a08      0x101 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-ctype_.o)
+                0x0000000008010a08                _ctype_
+ *fill*         0x0000000008010b09        0x3 
  .rodata._dtoa_r.str1.4
-                0x0000000008010970       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-dtoa.o)
+                0x0000000008010b0c       0x10 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-dtoa.o)
                                          0x12 (size before relaxing)
+ *fill*         0x0000000008010b1c        0x4 
  .rodata.__mprec_bigtens
-                0x0000000008010980       0x28 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
-                0x0000000008010980                __mprec_bigtens
+                0x0000000008010b20       0x28 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
+                0x0000000008010b20                __mprec_bigtens
  .rodata.__mprec_tens
-                0x00000000080109a8       0xc8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
-                0x00000000080109a8                __mprec_tens
+                0x0000000008010b48       0xc8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
+                0x0000000008010b48                __mprec_tens
  .rodata.p05.7367
-                0x0000000008010a70        0xc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
+                0x0000000008010c10        0xc /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
  *(.eh_frame*)
- .eh_frame      0x0000000008010a7c        0x0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
- .eh_frame      0x0000000008010a7c        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/crtend.o
+ .eh_frame      0x0000000008010c1c        0x0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
+ .eh_frame      0x0000000008010c1c        0x4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/crtend.o
 
-.glue_7         0x0000000008010a80        0x0
- .glue_7        0x0000000008010a80        0x0 linker stubs
+.glue_7         0x0000000008010c20        0x0
+ .glue_7        0x0000000008010c20        0x0 linker stubs
 
-.glue_7t        0x0000000008010a80        0x0
- .glue_7t       0x0000000008010a80        0x0 linker stubs
+.glue_7t        0x0000000008010c20        0x0
+ .glue_7t       0x0000000008010c20        0x0 linker stubs
 
-.vfp11_veneer   0x0000000008010a80        0x0
- .vfp11_veneer  0x0000000008010a80        0x0 linker stubs
+.vfp11_veneer   0x0000000008010c20        0x0
+ .vfp11_veneer  0x0000000008010c20        0x0 linker stubs
 
-.v4_bx          0x0000000008010a80        0x0
- .v4_bx         0x0000000008010a80        0x0 linker stubs
+.v4_bx          0x0000000008010c20        0x0
+ .v4_bx         0x0000000008010c20        0x0 linker stubs
 
-.iplt           0x0000000008010a80        0x0
- .iplt          0x0000000008010a80        0x0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
+.iplt           0x0000000008010c20        0x0
+ .iplt          0x0000000008010c20        0x0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000008010a80                __exidx_start = .
+                0x0000000008010c20                __exidx_start = .
 
-.ARM.exidx      0x0000000008010a80        0x8
+.ARM.exidx      0x0000000008010c20        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x0000000008010a80        0x8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
- .ARM.exidx     0x0000000008010a88        0x0 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/cmsis/TARGET_CORTEX_M/TOOLCHAIN_GCC/except.o
+ .ARM.exidx     0x0000000008010c20        0x8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
+ .ARM.exidx     0x0000000008010c28        0x0 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/cmsis/TARGET_CORTEX_M/TOOLCHAIN_GCC/except.o
                                          0x28 (size before relaxing)
- .ARM.exidx     0x0000000008010a88        0x0 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/TOOLCHAIN_GCC/TARGET_RTOS_M4_M7/irq_cm4f.o
+ .ARM.exidx     0x0000000008010c28        0x0 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/rtos/TARGET_CORTEX/rtx5/RTX/Source/TOOLCHAIN_GCC/TARGET_RTOS_M4_M7/irq_cm4f.o
                                          0x18 (size before relaxing)
- .ARM.exidx     0x0000000008010a88        0x0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_udivmoddi4.o)
+ .ARM.exidx     0x0000000008010c28        0x0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_udivmoddi4.o)
                                           0x8 (size before relaxing)
-                0x0000000008010a88                __exidx_end = .
-                0x0000000008010a88                __etext = .
-                0x0000000008010a88                _sidata = .
+                0x0000000008010c28                __exidx_end = .
+                0x0000000008010c28                __etext = .
+                0x0000000008010c28                _sidata = .
 
-.rel.dyn        0x0000000008010a88        0x0
- .rel.iplt      0x0000000008010a88        0x0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
+.rel.dyn        0x0000000008010c28        0x0
+ .rel.iplt      0x0000000008010c28        0x0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
 
-.data           0x0000000020000188      0xb80 load address 0x0000000008010a88
+.data           0x0000000020000188      0xb80 load address 0x0000000008010c28
                 0x0000000020000188                __data_start__ = .
                 0x0000000020000188                _sdata = .
  *(vtable)
@@ -39549,10 +39552,10 @@ LOAD /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi
                 0x0000000020000d08                __data_end__ = .
                 0x0000000020000d08                _edata = .
 
-.igot.plt       0x0000000020000d08        0x0 load address 0x0000000008011608
+.igot.plt       0x0000000020000d08        0x0 load address 0x00000000080117a8
  .igot.plt      0x0000000020000d08        0x0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
 
-.bss            0x0000000020000d08     0x2368 load address 0x0000000008011608
+.bss            0x0000000020000d08     0x2368 load address 0x00000000080117a8
                 0x0000000020000d08                . = ALIGN (0x8)
                 0x0000000020000d08                __bss_start__ = .
                 0x0000000020000d08                _sbss = .
@@ -40173,7 +40176,7 @@ OUTPUT(./BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.elf elf32-littlearm)
  .comment       0x000000000000007e       0x7f BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/us_ticker.o
  .comment       0x000000000000007e       0x7f BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
 
-.debug_line     0x0000000000000000     0xee9d
+.debug_line     0x0000000000000000     0xeec8
  .debug_line    0x0000000000000000       0x96 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/cmsis/TARGET_CORTEX_M/TOOLCHAIN_GCC/except.o
  .debug_line    0x0000000000000096       0xdf BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/cmsis/TARGET_CORTEX_M/mbed_fault_handler.o
  .debug_line    0x0000000000000175      0xcb5 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/components/802.15.4_RF/atmel-rf-driver/source/NanostackRfPhyAtmel.o
@@ -40256,9 +40259,9 @@ OUTPUT(./BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.elf elf32-littlearm)
  .debug_line    0x000000000000e501      0x30b BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/serial_api.o
  .debug_line    0x000000000000e80c       0xd0 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/sleep.o
  .debug_line    0x000000000000e8dc      0x1ed BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/us_ticker.o
- .debug_line    0x000000000000eac9      0x3d4 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+ .debug_line    0x000000000000eac9      0x3ff BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
 
-.debug_info     0x0000000000000000     0xdd7b
+.debug_info     0x0000000000000000     0xdd95
  .debug_info    0x0000000000000000       0x26 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/cmsis/TARGET_CORTEX_M/TOOLCHAIN_GCC/except.o
  .debug_info    0x0000000000000026       0x59 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/cmsis/TARGET_CORTEX_M/mbed_fault_handler.o
  .debug_info    0x000000000000007f     0x163d BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/components/802.15.4_RF/atmel-rf-driver/source/NanostackRfPhyAtmel.o
@@ -40340,7 +40343,7 @@ OUTPUT(./BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.elf elf32-littlearm)
  .debug_info    0x000000000000d676      0x19e BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/serial_api.o
  .debug_info    0x000000000000d814       0x92 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/sleep.o
  .debug_info    0x000000000000d8a6      0x14b BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/us_ticker.o
- .debug_info    0x000000000000d9f1      0x38a BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+ .debug_info    0x000000000000d9f1      0x3a4 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
 
 .debug_abbrev   0x0000000000000000     0x4819
  .debug_abbrev  0x0000000000000000       0x14 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/cmsis/TARGET_CORTEX_M/TOOLCHAIN_GCC/except.o
@@ -40426,7 +40429,7 @@ OUTPUT(./BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.elf elf32-littlearm)
  .debug_abbrev  0x000000000000459c       0xc7 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/us_ticker.o
  .debug_abbrev  0x0000000000004663      0x1b6 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
 
-.debug_aranges  0x0000000000000000     0x30b8
+.debug_aranges  0x0000000000000000     0x30c0
  .debug_aranges
                 0x0000000000000000       0x20 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/cmsis/TARGET_CORTEX_M/TOOLCHAIN_GCC/except.o
  .debug_aranges
@@ -40590,9 +40593,9 @@ OUTPUT(./BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.elf elf32-littlearm)
  .debug_aranges
                 0x0000000000002fa0       0x78 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/us_ticker.o
  .debug_aranges
-                0x0000000000003018       0xa0 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+                0x0000000000003018       0xa8 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
 
-.debug_str      0x0000000000000000     0xdbc9
+.debug_str      0x0000000000000000     0xdbf8
  .debug_str     0x0000000000000000       0x46 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/cmsis/TARGET_CORTEX_M/TOOLCHAIN_GCC/except.o
  .debug_str     0x0000000000000046      0x1ab BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/cmsis/TARGET_CORTEX_M/mbed_fault_handler.o
                                         0x1d9 (size before relaxing)
@@ -40756,10 +40759,10 @@ OUTPUT(./BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.elf elf32-littlearm)
                                         0x1d8 (size before relaxing)
  .debug_str     0x000000000000d995      0x11a BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/us_ticker.o
                                         0x2af (size before relaxing)
- .debug_str     0x000000000000daaf      0x11a BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
-                                        0x6ac (size before relaxing)
+ .debug_str     0x000000000000daaf      0x149 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+                                        0x6db (size before relaxing)
 
-.debug_ranges   0x0000000000000000     0x3e50
+.debug_ranges   0x0000000000000000     0x3e58
  .debug_ranges  0x0000000000000000       0x20 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/cmsis/TARGET_CORTEX_M/mbed_fault_handler.o
  .debug_ranges  0x0000000000000020      0x600 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/components/802.15.4_RF/atmel-rf-driver/source/NanostackRfPhyAtmel.o
  .debug_ranges  0x0000000000000620      0x338 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/components/wifi/esp8266-driver/ESP8266/ESP8266.o
@@ -40839,9 +40842,9 @@ OUTPUT(./BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.elf elf32-littlearm)
  .debug_ranges  0x0000000000003c40       0x68 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/serial_api.o
  .debug_ranges  0x0000000000003ca8       0x30 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/sleep.o
  .debug_ranges  0x0000000000003cd8       0x80 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/us_ticker.o
- .debug_ranges  0x0000000000003d58       0xf8 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+ .debug_ranges  0x0000000000003d58      0x100 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
 
-.debug_frame    0x0000000000000000     0x9d98
+.debug_frame    0x0000000000000000     0x9dbc
  .debug_frame   0x0000000000000000       0x68 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/cmsis/TARGET_CORTEX_M/mbed_fault_handler.o
  .debug_frame   0x0000000000000068      0x54c BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/components/802.15.4_RF/atmel-rf-driver/source/NanostackRfPhyAtmel.o
  .debug_frame   0x00000000000005b4      0x7b4 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/components/wifi/esp8266-driver/ESP8266/ESP8266.o
@@ -40920,76 +40923,76 @@ OUTPUT(./BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.elf elf32-littlearm)
  .debug_frame   0x00000000000080b8      0x154 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/serial_api.o
  .debug_frame   0x000000000000820c       0x50 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/sleep.o
  .debug_frame   0x000000000000825c       0xf0 BUILD/NUCLEO_L433RC_P/GCC_ARM/mbed-os/targets/TARGET_STM/us_ticker.o
- .debug_frame   0x000000000000834c      0x1c8 BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
- .debug_frame   0x0000000000008514       0x30 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-atoi.o)
- .debug_frame   0x0000000000008544       0x28 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-callocr.o)
- .debug_frame   0x000000000000856c       0x20 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-errno.o)
- .debug_frame   0x000000000000858c       0x3c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fclose.o)
- .debug_frame   0x00000000000085c8       0x5c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fflush.o)
- .debug_frame   0x0000000000008624      0x148 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-findfp.o)
- .debug_frame   0x000000000000876c       0x54 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fopen.o)
- .debug_frame   0x00000000000087c0       0x80 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-freer.o)
- .debug_frame   0x0000000000008840       0x3c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fseek.o)
- .debug_frame   0x000000000000887c       0x64 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fseeko.o)
- .debug_frame   0x00000000000088e0       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fstatr.o)
- .debug_frame   0x000000000000890c       0x64 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fvwrite.o)
- .debug_frame   0x0000000000008970       0x54 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fwalk.o)
- .debug_frame   0x00000000000089c4       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-init.o)
- .debug_frame   0x00000000000089f0       0x6c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-locale.o)
- .debug_frame   0x0000000000008a5c       0xb0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-lock.o)
- .debug_frame   0x0000000000008b0c       0x64 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-makebuf.o)
- .debug_frame   0x0000000000008b70       0x30 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-malloc.o)
- .debug_frame   0x0000000000008ba0       0x54 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mallocr.o)
- .debug_frame   0x0000000000008bf4       0x4c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mbtowc_r.o)
- .debug_frame   0x0000000000008c40       0x38 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-memcmp.o)
- .debug_frame   0x0000000000008c78       0x40 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-memmove.o)
- .debug_frame   0x0000000000008cb8       0x38 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-memset.o)
- .debug_frame   0x0000000000008cf0       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-openr.o)
- .debug_frame   0x0000000000008d1c       0x74 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-printf.o)
- .debug_frame   0x0000000000008d90       0x58 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-reallocr.o)
- .debug_frame   0x0000000000008de8       0x68 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-reent.o)
- .debug_frame   0x0000000000008e50       0x40 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-refill.o)
- .debug_frame   0x0000000000008e90       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-sbrkr.o)
- .debug_frame   0x0000000000008ebc       0x20 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-setbuf.o)
- .debug_frame   0x0000000000008edc       0x44 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-setvbuf.o)
- .debug_frame   0x0000000000008f20       0x88 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-stdio.o)
- .debug_frame   0x0000000000008fa8       0x30 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strchr.o)
- .debug_frame   0x0000000000008fd8       0x68 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strcmp.o)
- .debug_frame   0x0000000000009040       0x20 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strcpy.o)
- .debug_frame   0x0000000000009060       0x34 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strspn.o)
- .debug_frame   0x0000000000009094       0x9c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strstr.o)
- .debug_frame   0x0000000000009130       0x20 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strtok.o)
- .debug_frame   0x0000000000009150       0x48 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strtok_r.o)
- .debug_frame   0x0000000000009198       0x98 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strtol.o)
- .debug_frame   0x0000000000009230       0x40 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-svfprintf.o)
- .debug_frame   0x0000000000009270       0xd8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vfiprintf.o)
- .debug_frame   0x0000000000009348       0x94 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vfprintf.o)
- .debug_frame   0x00000000000093dc       0x5c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vsnprintf.o)
- .debug_frame   0x0000000000009438       0x4c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vsprintf.o)
- .debug_frame   0x0000000000009484       0x40 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-wbuf.o)
- .debug_frame   0x00000000000094c4       0x3c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-wctomb_r.o)
- .debug_frame   0x0000000000009500       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-writer.o)
- .debug_frame   0x000000000000952c       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-wsetup.o)
- .debug_frame   0x0000000000009558       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-closer.o)
- .debug_frame   0x0000000000009584       0x90 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-dtoa.o)
- .debug_frame   0x0000000000009614       0x38 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-flags.o)
- .debug_frame   0x000000000000964c       0x9c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fputwc.o)
- .debug_frame   0x00000000000096e8       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-isattyr.o)
- .debug_frame   0x0000000000009714       0x40 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-localeconv.o)
- .debug_frame   0x0000000000009754       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-lseekr.o)
- .debug_frame   0x0000000000009780      0x25c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
- .debug_frame   0x00000000000099dc       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-readr.o)
- .debug_frame   0x0000000000009a08       0x78 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-svfiprintf.o)
- .debug_frame   0x0000000000009a80       0x64 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-wcrtomb.o)
- .debug_frame   0x0000000000009ae4       0xac /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
- .debug_frame   0x0000000000009b90       0x50 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_muldivdf3.o)
- .debug_frame   0x0000000000009be0       0xc4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_cmpdf2.o)
- .debug_frame   0x0000000000009ca4       0x20 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_unorddf2.o)
- .debug_frame   0x0000000000009cc4       0x24 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_fixdfsi.o)
- .debug_frame   0x0000000000009ce8       0x24 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_fixunsdfsi.o)
- .debug_frame   0x0000000000009d0c       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x0000000000009d38       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_fixunssfdi.o)
- .debug_frame   0x0000000000009d64       0x34 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x000000000000834c      0x1ec BUILD/NUCLEO_L433RC_P/GCC_ARM/modem.o
+ .debug_frame   0x0000000000008538       0x30 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-atoi.o)
+ .debug_frame   0x0000000000008568       0x28 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-callocr.o)
+ .debug_frame   0x0000000000008590       0x20 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-errno.o)
+ .debug_frame   0x00000000000085b0       0x3c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fclose.o)
+ .debug_frame   0x00000000000085ec       0x5c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fflush.o)
+ .debug_frame   0x0000000000008648      0x148 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-findfp.o)
+ .debug_frame   0x0000000000008790       0x54 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fopen.o)
+ .debug_frame   0x00000000000087e4       0x80 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-freer.o)
+ .debug_frame   0x0000000000008864       0x3c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fseek.o)
+ .debug_frame   0x00000000000088a0       0x64 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fseeko.o)
+ .debug_frame   0x0000000000008904       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fstatr.o)
+ .debug_frame   0x0000000000008930       0x64 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fvwrite.o)
+ .debug_frame   0x0000000000008994       0x54 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fwalk.o)
+ .debug_frame   0x00000000000089e8       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-init.o)
+ .debug_frame   0x0000000000008a14       0x6c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-locale.o)
+ .debug_frame   0x0000000000008a80       0xb0 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-lock.o)
+ .debug_frame   0x0000000000008b30       0x64 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-makebuf.o)
+ .debug_frame   0x0000000000008b94       0x30 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-malloc.o)
+ .debug_frame   0x0000000000008bc4       0x54 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mallocr.o)
+ .debug_frame   0x0000000000008c18       0x4c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mbtowc_r.o)
+ .debug_frame   0x0000000000008c64       0x38 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-memcmp.o)
+ .debug_frame   0x0000000000008c9c       0x40 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-memmove.o)
+ .debug_frame   0x0000000000008cdc       0x38 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-memset.o)
+ .debug_frame   0x0000000000008d14       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-openr.o)
+ .debug_frame   0x0000000000008d40       0x74 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-printf.o)
+ .debug_frame   0x0000000000008db4       0x58 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-reallocr.o)
+ .debug_frame   0x0000000000008e0c       0x68 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-reent.o)
+ .debug_frame   0x0000000000008e74       0x40 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-refill.o)
+ .debug_frame   0x0000000000008eb4       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-sbrkr.o)
+ .debug_frame   0x0000000000008ee0       0x20 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-setbuf.o)
+ .debug_frame   0x0000000000008f00       0x44 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-setvbuf.o)
+ .debug_frame   0x0000000000008f44       0x88 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-stdio.o)
+ .debug_frame   0x0000000000008fcc       0x30 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strchr.o)
+ .debug_frame   0x0000000000008ffc       0x68 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strcmp.o)
+ .debug_frame   0x0000000000009064       0x20 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strcpy.o)
+ .debug_frame   0x0000000000009084       0x34 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strspn.o)
+ .debug_frame   0x00000000000090b8       0x9c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strstr.o)
+ .debug_frame   0x0000000000009154       0x20 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strtok.o)
+ .debug_frame   0x0000000000009174       0x48 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strtok_r.o)
+ .debug_frame   0x00000000000091bc       0x98 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-strtol.o)
+ .debug_frame   0x0000000000009254       0x40 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-svfprintf.o)
+ .debug_frame   0x0000000000009294       0xd8 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vfiprintf.o)
+ .debug_frame   0x000000000000936c       0x94 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vfprintf.o)
+ .debug_frame   0x0000000000009400       0x5c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vsnprintf.o)
+ .debug_frame   0x000000000000945c       0x4c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-vsprintf.o)
+ .debug_frame   0x00000000000094a8       0x40 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-wbuf.o)
+ .debug_frame   0x00000000000094e8       0x3c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-wctomb_r.o)
+ .debug_frame   0x0000000000009524       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-writer.o)
+ .debug_frame   0x0000000000009550       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-wsetup.o)
+ .debug_frame   0x000000000000957c       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-closer.o)
+ .debug_frame   0x00000000000095a8       0x90 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-dtoa.o)
+ .debug_frame   0x0000000000009638       0x38 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-flags.o)
+ .debug_frame   0x0000000000009670       0x9c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-fputwc.o)
+ .debug_frame   0x000000000000970c       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-isattyr.o)
+ .debug_frame   0x0000000000009738       0x40 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-localeconv.o)
+ .debug_frame   0x0000000000009778       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-lseekr.o)
+ .debug_frame   0x00000000000097a4      0x25c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-mprec.o)
+ .debug_frame   0x0000000000009a00       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-readr.o)
+ .debug_frame   0x0000000000009a2c       0x78 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-svfiprintf.o)
+ .debug_frame   0x0000000000009aa4       0x64 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libc.a(lib_a-wcrtomb.o)
+ .debug_frame   0x0000000000009b08       0xac /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
+ .debug_frame   0x0000000000009bb4       0x50 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_muldivdf3.o)
+ .debug_frame   0x0000000000009c04       0xc4 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_cmpdf2.o)
+ .debug_frame   0x0000000000009cc8       0x20 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_unorddf2.o)
+ .debug_frame   0x0000000000009ce8       0x24 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_fixdfsi.o)
+ .debug_frame   0x0000000000009d0c       0x24 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_fixunsdfsi.o)
+ .debug_frame   0x0000000000009d30       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x0000000000009d5c       0x2c /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_fixunssfdi.o)
+ .debug_frame   0x0000000000009d88       0x34 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_udivmoddi4.o)
 
 .stabstr        0x0000000000000000       0x76
  .stabstr       0x0000000000000000       0x76 /home/sansil/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(getpid.o)
