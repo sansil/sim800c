@@ -60,64 +60,65 @@ void Sim800c::task()
   switch (s_state.estado_actual)
   {
   case inicio:
+    rxBuff.clear();
     Sim800c::send_msg("AT");
     strcpy(s_state.resp_esperada, "OK");
     s_state.estado_anterior = s_state.estado_actual;
     s_state.estado_actual = esperando_respuesta;
     s_state.estado_proximo = rm_eco;
-    rxBuff.clear();
     timeout.attach(&timeout_cmd, 1.0);
     break;
   case rm_eco:
-    Sim800c::send_msg("ATE0");
+    rxBuff.clear();
+    Sim800c::send_msg("ATE0"); //ATE0
     s_state.estado_anterior = s_state.estado_actual;
     s_state.estado_actual = esperando_respuesta;
-    s_state.estado_proximo = fecha_hora; //registro_red;
+    s_state.estado_proximo = registro_red; //registro_red;
     strcpy(s_state.resp_esperada, "OK");
     timeout.attach(&timeout_cmd, 2.0);
-    rxBuff.clear();
     break;
   case registro_red:
+    rxBuff.clear();
     send_msg("AT+CREG?");
     printf("[SIM800c] Regsitrando en RED...\r\n");
     s_state.estado_anterior = s_state.estado_actual;
     s_state.estado_actual = esperando_respuesta;
     s_state.estado_proximo = hora_red;
     strcpy(s_state.resp_esperada, "+CREG: 0,1\r\n\r\nOK");
-    timeout.attach(&timeout_cmd, 2.0);
-    rxBuff.clear();
+    timeout.attach(&timeout_cmd, 5.0);
     break;
   case fecha_hora:
+    rxBuff.clear();
     send_msg("AT+CCLK?");
     s_state.estado_anterior = s_state.estado_actual;
     s_state.estado_actual = esperando_respuesta;
     s_state.estado_proximo = no_op;
     strcpy(s_state.resp_esperada, "\r\n\r\nOK");
     timeout.attach(&timeout_cmd, 2.0);
-    rxBuff.clear();
     break;
   case imei:
+    rxBuff.clear();
     send_msg("AT+GSN");
     s_state.estado_anterior = s_state.estado_actual;
     s_state.estado_actual = esperando_respuesta;
     s_state.estado_proximo = no_op;
     strcpy(s_state.resp_esperada, "OK");
     timeout.attach(&timeout_cmd, 2.0);
-    rxBuff.clear();
     break;
   case hora_red:
+    rxBuff.clear();
     send_msg("AT+CLTS?");
     //Serial.println("hora de red automatica?");
     s_state.estado_anterior = s_state.estado_actual;
     s_state.estado_actual = esperando_respuesta;
-    s_state.estado_proximo = http_config_1;
+    s_state.estado_proximo = test_gprs_connection; //http_config_1; viejo
     strcpy(s_state.resp_esperada, "\r\n\r\nOK");
     timeout.attach(&timeout_cmd, 2.0);
-    rxBuff.clear();
     break;
   case guardar_busqueda_hora_red:
     //esta funcion deberia ser llamada solo una vez si es
     //que ya no estab configurada de antes
+    rxBuff.clear();
     send_msg("AT+CLTS=1;&W");
     //Serial.println("seteando valor a registros del modem");
     s_state.estado_anterior = s_state.estado_actual;
@@ -125,9 +126,9 @@ void Sim800c::task()
     s_state.estado_proximo = software_reset;
     strcpy(s_state.resp_esperada, "OK");
     timeout.attach(&timeout_cmd, 2.0);
-    rxBuff.clear();
     break;
   case software_reset:
+    rxBuff.clear();
     send_msg("AT+CFUN=1,1");
     //delay(3000);
     //Serial.println("reiniciando modem");
@@ -136,13 +137,13 @@ void Sim800c::task()
     s_state.estado_proximo = inicio;
     strcpy(s_state.resp_esperada, "OK");
     timeout.attach(&timeout_cmd, 12.0);
-    rxBuff.clear();
     break;
 
     /**** FIN INICIO DE MODEM ****************/
 
     /**** Comienzo configuracion DE MODEM***/
   case http_config_1:
+    rxBuff.clear();
     send_msg("AT+SAPBR=3,1,\"Contype\",\"GPRS\"");
     printf("Comienzo de config http");
     s_state.estado_anterior = s_state.estado_actual;
@@ -150,9 +151,9 @@ void Sim800c::task()
     s_state.estado_proximo = http_config_2;
     strcpy(s_state.resp_esperada, "OK");
     timeout.attach(&timeout_cmd, 2.0);
-    rxBuff.clear();
     break;
   case http_config_2:
+    rxBuff.clear();
     send_break_msg("AT+SAPBR=3,1,\"APN\",");
     send_msg(APN_NAME);
     printf("poniendo apn\n\r");
@@ -161,18 +162,18 @@ void Sim800c::task()
     s_state.estado_proximo = http_config_3;
     strcpy(s_state.resp_esperada, "OK");
     timeout.attach(&timeout_cmd, 2.0);
-    rxBuff.clear();
     break;
   case http_config_3:
+    rxBuff.clear();
     send_msg("AT+SAPBR=1,1");
     s_state.estado_anterior = s_state.estado_actual;
     s_state.estado_actual = esperando_respuesta;
-    s_state.estado_proximo = http_config_4;
+    s_state.estado_proximo = test_gprs_connection;
     strcpy(s_state.resp_esperada, "OK");
     timeout.attach(&timeout_cmd, 2.0);
-    rxBuff.clear();
     break;
-  case http_config_4:
+  case test_gprs_connection:
+    rxBuff.clear();
     send_msg("AT+SAPBR=2,1");
     printf("pregunto si tengo internet\n\r");
     s_state.estado_anterior = s_state.estado_actual;
@@ -180,15 +181,120 @@ void Sim800c::task()
     s_state.estado_proximo = no_op;
     strcpy(s_state.resp_esperada, "OK");
     timeout.attach(&timeout_cmd, 12.0);
-    rxBuff.clear();
     break;
-  /**** FIN INICIO DE CONFIGURACION DE MODEM***/
+    /**** FIN INICIO DE CONFIGURACION DE MODEM***/
 
-  /**** Comienzo envio de datos***/
+    /**** Comienzo envio de datos***/
+  case http_send_msg_1:
+    rxBuff.clear();
+    send_msg("AT+HTTPINIT");
+    printf("comienzo iniciando http");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = http_send_msg_2;
+    strcpy(s_state.resp_esperada, "OK");
+    timeout.attach(&timeout_cmd, 2.0);
+    break;
+  case http_send_msg_2:
+    rxBuff.clear();
+    send_break_msg("AT+HTTPPARA=\"URL\",");
+    send_break_msg(URL_BASE);
+    send_break_msg("save-data");
+    send_msg("\"");
+    //Serial.println("seteando url");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = http_send_msg_3;
+    strcpy(s_state.resp_esperada, "OK");
+    timeout.attach(&timeout_cmd, 2.0);
+    break;
+  case http_send_msg_3:
+    rxBuff.clear();
+    send_msg("AT+HTTPPARA=\"CONTENT\",\"application/x-www-form-urlencoded\"");
+    //Serial.println("seteando content");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = http_send_msg_4;
+    strcpy(s_state.resp_esperada, "OK");
+    timeout.attach(&timeout_cmd, 2.0);
+    break;
+  case http_send_msg_4:
+    rxBuff.clear();
+    send_msg("AT+HTTPPARA=\"CID\",1");
+    //Serial.println("seteando CID");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = http_send_msg_5;
+    strcpy(s_state.resp_esperada, "OK");
+    timeout.attach(&timeout_cmd, 2.0);
+    break;
+  case http_send_msg_5:
+    char largo[5];
+    rxBuff.clear();
+    send_break_msg("AT+HTTPDATA="); // partir mensaje
+    sprintf(largo, "%d", strlen(msg_a_enviar));
+    send_break_msg(largo);
+    send_msg(",10000"); //timeout for internal parameter of modem
+    // Serial.print("mensaje a enviar: ");
+    // Serial.println(msg_a_enviar);
+    // Serial.println(largo);
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = http_send_msg_6;
+    strcpy(s_state.resp_esperada, "DOWNLOAD");
+    timeout.attach(&timeout_cmd, 7.0);
+    break;
+  case http_send_msg_6:
+    rxBuff.clear();
+    send_msg(msg_a_enviar); // 1 es post, 0 es get
+    printf("encolando data\r\n");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = http_send_msg_7;
+    strcpy(s_state.resp_esperada, "OK");
+    timeout.attach(&timeout_cmd, 2.0);
+    break;
+  case http_send_msg_7:
+    rxBuff.clear();
+    send_msg("AT+HTTPACTION=1"); // 1 es post, 0 es get
+    //Serial.println("seteando metodo POST");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = http_send_msg_8;
+    strcpy(s_state.resp_esperada, "+HTTPACTION: 1,");
+    timeout.attach(&timeout_cmd, 2.0);
+    break;
+  case http_send_msg_8:
+    memset(largo, '\0', 5);
+    sprintf(largo, "%d", largo_respuesta_http);
+    rxBuff.clear();
+    send_break_msg("AT+HTTPREAD=0,"); // mensaje partido
+    send_msg(largo);
+    //Serial.println("seteando metodo POST");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = http_send_msg_9;
+    strcpy(s_state.resp_esperada, "OK");
+    timeout.attach(&timeout_cmd, 2.0);
+    break;
+  case http_send_msg_9:
+    rxBuff.clear();
+    send_msg("AT+HTTPTERM");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = no_op;
+    strcpy(s_state.resp_esperada, "OK");
+    timeout.attach(&timeout_cmd, 12.0);
+    printf("Cerrando conexion");
+    break;
+    /**** FIN ENVIO DE DATOS***/
   case esperando_respuesta:
+
     //printf("[SIM800c] Esperando respuesta\r\n");
-    if (p_sim800c->rxBuff.new_data)
+    if (rxBuff.new_data)
     {
+      //printf("datos\n\r");
+      printf((char *)rxBuff.buff);
       /* agrego valor recibido por uart al buffer*/
       if (strstr((char *)rxBuff.buff, s_state.resp_esperada) != 0)
       {
@@ -216,6 +322,7 @@ void Sim800c::task()
     if (timeout_flag)
     {
       printf("timeout\n\r");
+
       timeout_flag = false;
       count_intentos++;
       if (count_intentos >= MAX_INTENTOS_MDM)
@@ -229,7 +336,6 @@ void Sim800c::task()
       }
     }
     break;
-
   case procesar_respuesta:
     //printf("vamos bien\r\n");
     switch (s_state.estado_anterior)
@@ -341,12 +447,31 @@ void Sim800c::task()
         s_state.estado_actual = http_send_msg_9;
       }
       break;
+    case test_gprs_connection:
+      if (strstr((char *)rxBuff.buff, "+SAPBR: 1,1") != 0)
+      {
+        printf("[MODEM_DEBUG] Conexion a internet establecida.\n\r");
+        s_state.estado_actual = no_op;
+      }
+      else
+      {
+        s_state.estado_actual = http_config_1;
+      }
+      break;
     default:
       s_state.estado_actual = s_state.estado_proximo;
       break;
     }
     break;
+  case no_op:
+    error_modem = OK_MDM;
+    printf("mision completa\n\r");
+    wait(1);
+    break;
   case error_mdm:
+    error_modem = ERROR_MDM;
+    printf("mision Fracasada\n\r");
+    wait(1);
     break;
   default:
     break;

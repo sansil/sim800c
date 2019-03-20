@@ -52,7 +52,7 @@ typedef enum modem_state_t
   http_config_1,
   http_config_2,
   http_config_3,
-  http_config_4,
+  test_gprs_connection,
   http_send_msg_1,
   http_send_msg_2,
   http_send_msg_3,
@@ -98,6 +98,7 @@ private:
   Timeout timeout;
   int largo_respuesta_http; //ver de quitar
   void timeout_callback();
+  char *msg_a_enviar;
 
 public:
   rxBuffer rxBuff;
