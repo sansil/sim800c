@@ -59,6 +59,28 @@ void Sim800c::task()
 
   switch (s_state.estado_actual)
   {
+  case en_regulador:
+    m_pinReg = 1; //enable reg
+    m_powKey = 0; //powKey en 1
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = wait_timeout;
+    s_state.estado_proximo = pw_key_pulse_off;
+    timeout.attach(&timeout_cmd, 0.3);
+    break;
+  case pw_key_pulse_off:
+    m_powKey = 1; //pulse in 1
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = wait_timeout;
+    s_state.estado_proximo = pw_key_pulse_on;
+    timeout.attach(&timeout_cmd, 1.2); //1.5 seg
+    break;
+  case pw_key_pulse_on:
+    m_powKey = 0; //pulse in 1
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = wait_timeout;
+    s_state.estado_proximo = inicio;
+    timeout.attach(&timeout_cmd, 3.2); //3.2 segun hoja de datos para q este ready seg
+    break;
   case inicio:
     rxBuff.clear();
     Sim800c::send_msg("AT");
@@ -76,6 +98,7 @@ void Sim800c::task()
     s_state.estado_proximo = registro_red; //registro_red;
     strcpy(s_state.resp_esperada, "OK");
     timeout.attach(&timeout_cmd, 2.0);
+    count_intentos = 0; //llevo contador a cero(por si anteriormente hubo error) ya preguntar por red no es un error en si.
     break;
   case registro_red:
     rxBuff.clear();
@@ -90,9 +113,10 @@ void Sim800c::task()
   case fecha_hora:
     rxBuff.clear();
     send_msg("AT+CCLK?");
+    printf("mandando AT+CCLK\n\r");
     s_state.estado_anterior = s_state.estado_actual;
     s_state.estado_actual = esperando_respuesta;
-    s_state.estado_proximo = no_op;
+    s_state.estado_proximo = finish_task;
     strcpy(s_state.resp_esperada, "\r\n\r\nOK");
     timeout.attach(&timeout_cmd, 2.0);
     break;
@@ -101,8 +125,18 @@ void Sim800c::task()
     send_msg("AT+GSN");
     s_state.estado_anterior = s_state.estado_actual;
     s_state.estado_actual = esperando_respuesta;
-    s_state.estado_proximo = no_op;
+    s_state.estado_proximo = finish_task;
     strcpy(s_state.resp_esperada, "OK");
+    timeout.attach(&timeout_cmd, 2.0);
+    break;
+  case rssi:
+    rxBuff.clear();
+    send_msg("AT+CSQ");
+    //Serial.println("obteniendo rssi");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = finish_task;
+    strcpy(s_state.resp_esperada, "\r\n\r\nOK");
     timeout.attach(&timeout_cmd, 2.0);
     break;
   case hora_red:
@@ -178,7 +212,7 @@ void Sim800c::task()
     printf("pregunto si tengo internet\n\r");
     s_state.estado_anterior = s_state.estado_actual;
     s_state.estado_actual = esperando_respuesta;
-    s_state.estado_proximo = no_op;
+    s_state.estado_proximo = finish_task; //finish_task;
     strcpy(s_state.resp_esperada, "OK");
     timeout.attach(&timeout_cmd, 12.0);
     break;
@@ -282,12 +316,23 @@ void Sim800c::task()
     send_msg("AT+HTTPTERM");
     s_state.estado_anterior = s_state.estado_actual;
     s_state.estado_actual = esperando_respuesta;
-    s_state.estado_proximo = no_op;
+    s_state.estado_proximo = finish_task;
     strcpy(s_state.resp_esperada, "OK");
     timeout.attach(&timeout_cmd, 12.0);
     printf("Cerrando conexion");
     break;
     /**** FIN ENVIO DE DATOS***/
+
+    /**GSM LOCATION***/
+  case gsm_loc:
+    rxBuff.clear();
+    send_msg("AT+CIPGSMLOC=1,1");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = finish_task;
+    strcpy(s_state.resp_esperada, "OK");
+    timeout.attach(&timeout_cmd, 5.0);
+    break;
   case esperando_respuesta:
 
     //printf("[SIM800c] Esperando respuesta\r\n");
@@ -343,8 +388,8 @@ void Sim800c::task()
     case imei:
       char *p, *v;
       int i;
-      printf("%s", rxBuff.buff);
-      printf("IMEI obtenido: ");
+      //printf("%s", rxBuff.buff);
+      //printf("IMEI obtenido: ");
       v = strstr((char *)(rxBuff.buff), "\r\n");
       v = v + 2;           //lo coloco en el primer caracter
       p = strstr(v, "\n"); //p esta en el utlimo salto de barra
@@ -360,12 +405,12 @@ void Sim800c::task()
       s_state.estado_actual = s_state.estado_proximo;
       if (callback != NULL)
         callback(); //llamo a funcion de callback y cargo hora
-      printf("%s", Sim800c::m_imei);
-      printf("\r\n");
+      //printf("%s", Sim800c::m_imei);
+      //printf("\r\n");
       break;
     case fecha_hora:
       memset(Sim800c::timestamp, '\0', 30);
-      printf("Hora obtenida: ");
+      //printf("Hora obtenida: ");
       v = strstr((char *)(rxBuff.buff), "+CCLK: ");
       v = v + 7;                     //lo coloco en el primer caracter
       p = strstr((char *)(v), "\n"); //p esta en el utlimo "
@@ -381,7 +426,7 @@ void Sim800c::task()
       s_state.estado_actual = s_state.estado_proximo;
       if (callback != NULL)
         callback(); //llamo a funcion de callback y cargo hora
-      printf(Sim800c::timestamp);
+      //printf(Sim800c::timestamp);
       break;
     case hora_red:
       v = strstr((char *)(rxBuff.buff), "+CLTS: ");
@@ -451,22 +496,51 @@ void Sim800c::task()
       if (strstr((char *)rxBuff.buff, "+SAPBR: 1,1") != 0)
       {
         printf("[MODEM_DEBUG] Conexion a internet establecida.\n\r");
-        s_state.estado_actual = no_op;
+        s_state.estado_actual = finish_task;
       }
       else
       {
         s_state.estado_actual = http_config_1;
       }
       break;
+    case gsm_loc:
+      //+CIPGSMLOC: 0,-56.190739,-34.903355,2019/03/20,18:00:40
+      p = strtok((char *)rxBuff.buff, ",");
+      if (!p)
+        break;
+      p = strtok(NULL, ",");
+      lon = atof(p);
+      p = strtok(NULL, ",");
+      lat = atof(p);
+      // char buf_aux[10];
+      // sprintf(buf_aux, "%f", lon); //4 is mininum width, 6 is precision
+      // printf("%s\n\r", buf_aux);
+      // sprintf(buf_aux, "%f", lat);
+      // printf("%s\n\r", buf_aux);
+      s_state.estado_actual = s_state.estado_proximo;
+      if (callback != NULL)
+        callback();
+      break;
     default:
       s_state.estado_actual = s_state.estado_proximo;
       break;
     }
     break;
-  case no_op:
+  case wait_timeout:
+    if (timeout_flag)
+    {
+      timeout_flag = false;
+      s_state.estado_actual = s_state.estado_proximo;
+    }
+    break;
+  case finish_task:
     error_modem = OK_MDM;
+    s_state.estado_actual = no_op; //no_op;
+    status_handler();
     printf("mision completa\n\r");
-    wait(1);
+    break;
+  case no_op:
+    //wait(1);
     break;
   case error_mdm:
     error_modem = ERROR_MDM;
@@ -491,3 +565,133 @@ void rx_callback()
   }
   p_sim800c->rxBuff.new_data = true;
 }
+
+/********* TCP FUNCTIONS  ************************************/
+
+// boolean Adafruit_FONA::TCPconnect(char *server, uint16_t port)
+// {
+//   flushInput();
+
+//   // close all old connections
+//   if (!sendCheckReply(F("AT+CIPSHUT"), F("SHUT OK"), 20000))
+//     return false;
+
+//   // single connection at a time
+//   if (!sendCheckReply(F("AT+CIPMUX=0"), ok_reply))
+//     return false;
+
+//   // manually read data
+//   if (!sendCheckReply(F("AT+CIPRXGET=1"), ok_reply))
+//     return false;
+
+//   DEBUG_PRINT(F("AT+CIPSTART=\"TCP\",\""));
+//   DEBUG_PRINT(server);
+//   DEBUG_PRINT(F("\",\""));
+//   DEBUG_PRINT(port);
+//   DEBUG_PRINTLN(F("\""));
+
+//   mySerial->print(F("AT+CIPSTART=\"TCP\",\""));
+//   mySerial->print(server);
+//   mySerial->print(F("\",\""));
+//   mySerial->print(port);
+//   mySerial->println(F("\""));
+
+//   if (!expectReply(ok_reply))
+//     return false;
+//   if (!expectReply(F("CONNECT OK")))
+//     return false;
+
+//   // looks like it was a success (?)
+//   return true;
+// }
+
+// boolean Adafruit_FONA::TCPclose(void)
+// {
+//   return sendCheckReply(F("AT+CIPCLOSE"), ok_reply);
+// }
+
+// boolean Adafruit_FONA::TCPconnected(void)
+// {
+//   if (!sendCheckReply(F("AT+CIPSTATUS"), ok_reply, 100))
+//     return false;
+//   readline(100);
+
+//   DEBUG_PRINT(F("\t<--- "));
+//   DEBUG_PRINTLN(replybuffer);
+
+//   return (strcmp(replybuffer, "STATE: CONNECT OK") == 0);
+// }
+
+// boolean Adafruit_FONA::TCPsend(char *packet, uint8_t len)
+// {
+
+//   DEBUG_PRINT(F("AT+CIPSEND="));
+//   DEBUG_PRINTLN(len);
+// #ifdef ADAFRUIT_FONA_DEBUG
+//   for (uint16_t i = 0; i < len; i++)
+//   {
+//     DEBUG_PRINT(F(" 0x"));
+//     DEBUG_PRINT(packet[i], HEX);
+//   }
+// #endif
+//   DEBUG_PRINTLN();
+
+//   mySerial->print(F("AT+CIPSEND="));
+//   mySerial->println(len);
+//   readline();
+
+//   DEBUG_PRINT(F("\t<--- "));
+//   DEBUG_PRINTLN(replybuffer);
+
+//   if (replybuffer[0] != '>')
+//     return false;
+
+//   mySerial->write(packet, len);
+//   readline(3000); // wait up to 3 seconds to send the data
+
+//   DEBUG_PRINT(F("\t<--- "));
+//   DEBUG_PRINTLN(replybuffer);
+
+//   return (strcmp(replybuffer, "SEND OK") == 0);
+// }
+
+// uint16_t Adafruit_FONA::TCPavailable(void)
+// {
+//   uint16_t avail;
+
+//   if (!sendParseReply(F("AT+CIPRXGET=4"), F("+CIPRXGET: 4,"), &avail, ',', 0))
+//     return false;
+
+//   DEBUG_PRINT(avail);
+//   DEBUG_PRINTLN(F(" bytes available"));
+
+//   return avail;
+// }
+
+// uint16_t Adafruit_FONA::TCPread(uint8_t *buff, uint8_t len)
+// {
+//   uint16_t avail;
+
+//   mySerial->print(F("AT+CIPRXGET=2,"));
+//   mySerial->println(len);
+//   readline();
+//   if (!parseReply(F("+CIPRXGET: 2,"), &avail, ',', 0))
+//     return false;
+
+//   readRaw(avail);
+
+// #ifdef ADAFRUIT_FONA_DEBUG
+//   DEBUG_PRINT(avail);
+//   DEBUG_PRINTLN(F(" bytes read"));
+//   for (uint8_t i = 0; i < avail; i++)
+//   {
+//     DEBUG_PRINT(F(" 0x"));
+//     DEBUG_PRINT(replybuffer[i], HEX);
+//   }
+//   DEBUG_PRINTLN();
+// #endif
+
+//   memcpy(buff, replybuffer, avail);
+
+//   return avail;
+// }

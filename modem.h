@@ -6,8 +6,11 @@
 // const uint16_t MAX_LENGTH_RX_BUFF = 255;
 #define MAX_INTENTOS_MDM 5
 #define MAX_LENGTH_RX_BUFF 255
-#define APN_NAME "\"antel.lte\"" //"gprs.ancel"//"prepago.ancel"//"cuenca.vpnantel"antel.lte
-#define URL_BASE "http://url/"
+#define APN_NAME "\"antel.lte\""     //"gprs.ancel"//"prepago.ancel"//"cuenca.vpnantel"antel.lte
+#define URL_BASE "https://reqres.in" ///api/register {
+// "email" : "sydney@fife",
+//           "password" : "pistol"
+// }
 
 struct rxBuffer
 {
@@ -27,18 +30,23 @@ typedef enum error_modem_t
 
 typedef enum request_t
 {
-  modem_begin = 0,
+  modem_on = 0,
+  modem_begin,
   modem_getcclk,
   modem_setcclk,
   modem_getimei,
   modem_sendgprs,
   modem_getrssi,
+  modem_getgsmloc,
   modem_off,
   modem_download_ftp
 } request_t; // request a pedirle desde el exterior
 
 typedef enum modem_state_t
 {
+  en_regulador,
+  pw_key_pulse_on,
+  pw_key_pulse_off,
   inicio,
   registro_red,
   imei,
@@ -72,11 +80,14 @@ typedef enum modem_state_t
   download_ftp_3,
   download_ftp_4,
   download_ftp_5,
+  gsm_loc,
   no_op,
   error_mdm,
   esperando_respuesta,
   procesar_respuesta,
-  procesar_mensaje
+  procesar_mensaje,
+  wait_timeout,
+  finish_task
 } modem_state_t; // request a pedirle desde el exterior
 
 typedef struct s_state_t
@@ -87,6 +98,10 @@ typedef struct s_state_t
   char resp_esperada[30];
 } s_state_t;
 
+//TODO: Comando a agregar :
+// 2) TCP/IP manage
+// 3) Estado de conxion? AT+CGATT?
+// 4) Network time sync? AT+CNTPCID=1, AT+CNTP="pool.ntp.org"
 class Sim800c
 {
 private:
@@ -99,18 +114,23 @@ private:
   int largo_respuesta_http; //ver de quitar
   void timeout_callback();
   char *msg_a_enviar;
+  DigitalOut m_pinReg;
+  DigitalOut m_powKey;
+  s_state_t s_state;
 
 public:
   rxBuffer rxBuff;
   RawSerial module;
-  volatile bool timeout_flag = false;
+  volatile bool timeout_flag{0};
   error_modem_t error_modem;
-  s_state_t s_state;
   char m_imei[20];
-  int m_rssi;
+  int m_rssi{0};
   char timestamp[30];
-  void (*callback)();
-  Sim800c(PinName tx, PinName rx) : module(tx, rx){};
+  float lat{0};
+  float lon{0};
+  void (*callback)();       // se ejecuta por ejemplo al obtner el imei o el timestamp
+  void (*status_handler)(); // aviso a main ppal cuando termino un task
+  Sim800c(PinName tx, PinName rx, PinName pinReg = PA_0, PinName powKey = PA_1, void (*modem_handler)() = NULL) : status_handler(modem_handler), m_pinReg(pinReg), m_powKey(powKey), module(tx, rx){};
   void begin(uint16_t baud);
   void task();
   void set_request(request_t req, void (*data)())
@@ -120,6 +140,9 @@ public:
     count_intentos = 0;
     switch (req)
     {
+    case modem_on:
+      s_state.estado_actual = en_regulador;
+      break;
     case modem_begin:
       s_state.estado_actual = inicio;
       break;
@@ -134,6 +157,10 @@ public:
     case modem_getrssi:
       callback = data;
       s_state.estado_actual = rssi;
+      break;
+    case modem_getgsmloc:
+      callback = data;
+      s_state.estado_actual = gsm_loc;
       break;
     case modem_off:
       s_state.estado_actual = apagar_mdm;
