@@ -228,4 +228,5 @@ BUILD/NUCLEO_L433RC_P/GCC_ARM/main.o: main.cpp \
  mbed-os/platform/ScopedRomWriteLock.h mbed-os/platform/mbed_mpu_mgmt.h \
  mbed-os/hal/mpu_api.h mbed-os/platform/ScopedRamExecutionLock.h \
  mbed-os/platform/mbed_stats.h mbed-os/platform/Callback.h \
- mbed-os/platform/FunctionPointer.h mbed-os/platform/ScopedLock.h
+ mbed-os/platform/FunctionPointer.h mbed-os/platform/ScopedLock.h \
+ public_info.h

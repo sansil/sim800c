@@ -35,6 +35,18 @@ void Sim800c::send_msg(const char *msg)
   Sim800c::module.printf("\r\n");
 }
 
+void Sim800c::write_msg(char *msg, uint16_t large)
+{
+  int largito = 0;
+  for (int i = 0; i < large; i++)
+  {
+    Sim800c::module.putc((int)msg[i]);
+    largito = i;
+    printf("largito: %d\n\r", largito);
+  }
+  printf("largito: %d", largito);
+}
+
 void Sim800c::send_break_msg(const char *msg)
 {
   Sim800c::flush();
@@ -108,7 +120,7 @@ void Sim800c::task()
     s_state.estado_actual = esperando_respuesta;
     s_state.estado_proximo = hora_red;
     strcpy(s_state.resp_esperada, "+CREG: 0,1\r\n\r\nOK");
-    timeout.attach(&timeout_cmd, 5.0);
+    timeout.attach(&timeout_cmd, 2.0);
     break;
   case fecha_hora:
     rxBuff.clear();
@@ -145,7 +157,14 @@ void Sim800c::task()
     //Serial.println("hora de red automatica?");
     s_state.estado_anterior = s_state.estado_actual;
     s_state.estado_actual = esperando_respuesta;
-    s_state.estado_proximo = test_gprs_connection; //http_config_1; viejo
+    if (mode_high_level_fuction)
+    {
+      s_state.estado_proximo = test_gprs_connection; //http_config_1; viejo
+    }
+    else
+    {
+      s_state.estado_proximo = cgatt;
+    }
     strcpy(s_state.resp_esperada, "\r\n\r\nOK");
     timeout.attach(&timeout_cmd, 2.0);
     break;
@@ -173,9 +192,9 @@ void Sim800c::task()
     timeout.attach(&timeout_cmd, 12.0);
     break;
 
-    /**** FIN INICIO DE MODEM ****************/
+  /**** FIN INICIO DE MODEM ****************/
 
-    /**** Comienzo configuracion DE MODEM***/
+  /**** Comienzo configuracion DE MODEM***/
   case http_config_1:
     rxBuff.clear();
     send_msg("AT+SAPBR=3,1,\"Contype\",\"GPRS\"");
@@ -216,9 +235,9 @@ void Sim800c::task()
     strcpy(s_state.resp_esperada, "OK");
     timeout.attach(&timeout_cmd, 12.0);
     break;
-    /**** FIN INICIO DE CONFIGURACION DE MODEM***/
+  /**** FIN INICIO DE CONFIGURACION DE MODEM***/
 
-    /**** Comienzo envio de datos***/
+  /**** Comienzo envio de datos***/
   case http_send_msg_1:
     rxBuff.clear();
     send_msg("AT+HTTPINIT");
@@ -266,11 +285,11 @@ void Sim800c::task()
     char largo[5];
     rxBuff.clear();
     send_break_msg("AT+HTTPDATA="); // partir mensaje
-    sprintf(largo, "%d", strlen(msg_a_enviar));
+    sprintf(largo, "%d", strlen(message.payload));
     send_break_msg(largo);
     send_msg(",10000"); //timeout for internal parameter of modem
     // Serial.print("mensaje a enviar: ");
-    // Serial.println(msg_a_enviar);
+    // Serial.println(payload);
     // Serial.println(largo);
     s_state.estado_anterior = s_state.estado_actual;
     s_state.estado_actual = esperando_respuesta;
@@ -280,7 +299,7 @@ void Sim800c::task()
     break;
   case http_send_msg_6:
     rxBuff.clear();
-    send_msg(msg_a_enviar); // 1 es post, 0 es get
+    send_msg(message.payload); // 1 es post, 0 es get
     printf("encolando data\r\n");
     s_state.estado_anterior = s_state.estado_actual;
     s_state.estado_actual = esperando_respuesta;
@@ -321,9 +340,183 @@ void Sim800c::task()
     timeout.attach(&timeout_cmd, 12.0);
     printf("Cerrando conexion");
     break;
-    /**** FIN ENVIO DE DATOS***/
+  /**** FIN ENVIO DE DATOS***/
 
-    /**GSM LOCATION***/
+  /*** TCP COMMANDS ***/
+  case cgatt:
+    // gprs attached?
+    rxBuff.clear();
+    printf("comienzo de tcp config\n\r");
+    send_msg("AT+CGATT?");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = tcp_cipshut;
+    strcpy(s_state.resp_esperada, "+CGATT: 1");
+    timeout.attach(&timeout_cmd, 5.0);
+    break;
+  case tcp_cipshut:
+    // cierro conexiones anteriores
+    rxBuff.clear();
+    send_msg("AT+CIPSHUT");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = tcp_cipstatus;
+    strcpy(s_state.resp_esperada, "SHUT OK");
+    timeout.attach(&timeout_cmd, 15.0);
+    break;
+  case tcp_cipstatus:
+    rxBuff.clear();
+    send_msg("AT+CIPSTATUS");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = tcp_cipmux;
+    strcpy(s_state.resp_esperada, "STATE: IP INITIAL");
+    timeout.attach(&timeout_cmd, 2.0);
+    break;
+    //no permito conexiones multiples
+  case tcp_cipmux:
+    rxBuff.clear();
+    send_msg("AT+CIPMUX=0");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = tcp_ciprxget;
+    strcpy(s_state.resp_esperada, "OK");
+    timeout.attach(&timeout_cmd, 2.0);
+    break;
+  case tcp_ciprxget: // manuallly fetch data
+    rxBuff.clear();
+    printf("rxget\n\r");
+    send_msg("AT+CIPRXGET=1");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = tcp_cstt;
+    strcpy(s_state.resp_esperada, "OK");
+    timeout.attach(&timeout_cmd, 2.0);
+    break;
+  case tcp_cstt:
+    // configuro apn
+    rxBuff.clear();
+    printf("cstt\n\r");
+    send_break_msg("AT+CSTT=");
+    send_break_msg(APN_NAME);
+    send_msg(",\"\",\"\"");
+    //send_msg("AT+CSTT=\"antel.lte\",\"\",\"\"");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = tcp_ciicr;
+    strcpy(s_state.resp_esperada, "OK");
+    timeout.attach(&timeout_cmd, 5.0);
+    break;
+    //wireless setup
+  case tcp_ciicr:
+    printf("ciicr\n\r");
+    rxBuff.clear();
+    send_msg("AT+CIICR");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = tcp_cifsr;
+    strcpy(s_state.resp_esperada, "OK");
+    timeout.attach(&timeout_cmd, 15.0);
+    break;
+    //get IP
+  case tcp_cifsr:
+    printf("ciicr\n\r");
+    rxBuff.clear();
+    send_msg("AT+CIFSR");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = tcp_cipstart;
+    strcpy(s_state.resp_esperada, ".");
+    timeout.attach(&timeout_cmd, 5.0);
+    break;
+  case tcp_cipstart:
+    printf("Conectando TCP...\n\r");
+    rxBuff.clear();
+    send_break_msg("AT+CIPSTART=\"TCP\",");
+    send_break_msg(MQTT_SERVER);
+    send_break_msg(",");
+    send_msg(MQTT_PORT);
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = finish_task;
+    strcpy(s_state.resp_esperada, "CONNECT OK");
+    timeout.attach(&timeout_cmd, 8.0);
+    break;
+
+    /**TCP SEND COMMANDS**/
+    //TODO: agregar caso en el que la respuesta no es connect OK, ej de respuesta CLOSED
+
+  case tcp_cipstatus_connected:
+    rxBuff.clear();
+    printf("status\n\r");
+    send_msg("AT+CIPSTATUS");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = tcp_cipsend;
+    strcpy(s_state.resp_esperada, "STATE: CONNECT OK");
+    timeout.attach(&timeout_cmd, 2.0);
+    break;
+  case tcp_cipsend:
+    memset(largo, '\0', 5);
+    rxBuff.clear();
+    sprintf(largo, "%d", message.largo);
+    printf("largo msg a enviar: %s", largo);
+    send_break_msg("AT+CIPSEND=");
+    send_msg(largo);
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = tcp_cipsending;
+    strcpy(s_state.resp_esperada, ">");
+    timeout.attach(&timeout_cmd, 2.0);
+    break;
+  case tcp_cipsending:
+    rxBuff.clear();
+    printf("enviando msg TCP...\n\r");
+    write_msg(message.payload, message.largo);
+    //send_msg(message.payload);
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = tcp_available; //finish_task
+    strcpy(s_state.resp_esperada, "SEND OK");
+    timeout.attach(&timeout_cmd, 2.0);
+    break;
+
+    /**READ TCP COMMANDS**/
+  case tcp_available:
+    rxBuff.clear();
+    printf("Preguntando si hay datos a leer\n\r");
+    send_msg("AT+CIPRXGET=4");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = tcp_read;
+    strcpy(s_state.resp_esperada, "\r\n\r\nOK"); //+CIPRXGET: 4,
+    timeout.attach(&timeout_cmd, 3.0);
+    break;
+  case tcp_read:
+    memset(largo, '\0', 5);
+    rxBuff.clear();
+    sprintf(largo, "%d", largo_respuesta_http);
+    printf("leyendo msg TCP...\n\r");
+    send_break_msg("AT+CIPRXGET=2,");
+    send_msg(largo);
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = finish_task;
+    strcpy(s_state.resp_esperada, "+CIPRXGET: 2,");
+    timeout.attach(&timeout_cmd, 4.0);
+    break;
+
+    //TCP close
+  case tcp_cipclose:
+    rxBuff.clear();
+    send_break_msg("AT+CIPCLOSE");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    s_state.estado_proximo = finish_task;
+    strcpy(s_state.resp_esperada, "OK");
+    timeout.attach(&timeout_cmd, 2.0);
+    break;
+  /**GSM LOCATION***/
   case gsm_loc:
     rxBuff.clear();
     send_msg("AT+CIPGSMLOC=1,1");
@@ -333,6 +526,8 @@ void Sim800c::task()
     strcpy(s_state.resp_esperada, "OK");
     timeout.attach(&timeout_cmd, 5.0);
     break;
+
+  /** PROCESAMIENTO **/
   case esperando_respuesta:
 
     //printf("[SIM800c] Esperando respuesta\r\n");
@@ -366,7 +561,7 @@ void Sim800c::task()
     }
     if (timeout_flag)
     {
-      printf("timeout\n\r");
+      printf("[MODEM] TimeOut en CMD\n\r");
 
       timeout_flag = false;
       count_intentos++;
@@ -502,6 +697,28 @@ void Sim800c::task()
       {
         s_state.estado_actual = http_config_1;
       }
+      break;
+    case tcp_available:
+      printf("tcp available\n\r");
+      p = strstr((char *)rxBuff.buff, "+CIPRXGET: 4,");
+      //printf(p);
+      p = p + 13;                  // me saco primer coma de arriba
+      v = strstr(p, "\r\n\r\nOK"); // luego de esta coma esta el largo a leer
+      v = '\0';
+      message_in.largo = atoi(p);
+      printf("largo a leer: %d \r\n", message_in.largo);
+
+      if (message_in.largo > 0)
+      {
+        s_state.estado_actual = s_state.estado_proximo;
+      }
+      else
+      {
+        s_state.estado_actual = finish_task;
+      }
+      break;
+    case tcp_read:
+      // while ()
       break;
     case gsm_loc:
       //+CIPGSMLOC: 0,-56.190739,-34.903355,2019/03/20,18:00:40

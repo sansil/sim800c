@@ -3,11 +3,11 @@
         "module": "[fill]", 
         "size": {
             ".data-delta": 0, 
-            ".text-delta": -8, 
-            ".bss": 49, 
+            ".text-delta": 44, 
+            ".bss": 58, 
             ".data": 12, 
             ".bss-delta": 0, 
-            ".text": 155
+            ".text": 191
         }
     }, 
     {
@@ -18,7 +18,7 @@
             ".bss": 89, 
             ".data": 2472, 
             ".bss-delta": 0, 
-            ".text": 37246
+            ".text": 37346
         }
     }, 
     {
@@ -48,10 +48,10 @@
         "size": {
             ".data-delta": 0, 
             ".text-delta": 0, 
-            ".bss": 1513, 
+            ".bss": 1680, 
             ".data": 4, 
             ".bss-delta": 0, 
-            ".text": 1394
+            ".text": 1780
         }
     }, 
     {
@@ -102,7 +102,7 @@
         "module": "mbed-os/platform", 
         "size": {
             ".data-delta": 0, 
-            ".text-delta": 2, 
+            ".text-delta": 0, 
             ".bss": 244, 
             ".data": 260, 
             ".bss-delta": 0, 
@@ -135,19 +135,19 @@
         "module": "modem.o", 
         "size": {
             ".data-delta": 0, 
-            ".text-delta": 12, 
+            ".text-delta": 20, 
             ".bss": 4, 
             ".data": 0, 
             ".bss-delta": 0, 
-            ".text": 4574
+            ".text": 7032
         }
     }, 
     {
         "summary": {
-            "static_ram": 12320, 
-            "total_flash_delta": 6, 
+            "static_ram": 12496, 
+            "total_flash_delta": 64, 
             "static_ram_delta": 0, 
-            "total_flash": 82045
+            "total_flash": 85025
         }
     }
 ]

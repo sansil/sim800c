@@ -2,9 +2,10 @@
 #define MODEM_H
 
 #include "mbed.h"
+#include "public_info.h"
 
 // const uint16_t MAX_LENGTH_RX_BUFF = 255;
-#define MAX_INTENTOS_MDM 5
+#define MAX_INTENTOS_MDM 15
 #define MAX_LENGTH_RX_BUFF 255
 #define APN_NAME "\"antel.lte\""     //"gprs.ancel"//"prepago.ancel"//"cuenca.vpnantel"antel.lte
 #define URL_BASE "https://reqres.in" ///api/register {
@@ -36,6 +37,9 @@ typedef enum request_t
   modem_setcclk,
   modem_getimei,
   modem_sendgprs,
+  modem_sendtcp,
+  modem_start_tcp_config,
+  modem_closetcp,
   modem_getrssi,
   modem_getgsmloc,
   modem_off,
@@ -80,6 +84,22 @@ typedef enum modem_state_t
   download_ftp_3,
   download_ftp_4,
   download_ftp_5,
+  gprs_status, //At+CGATT?
+  cgatt,
+  tcp_cstt,
+  tcp_ciicr,
+  tcp_cifsr,
+  tcp_cipshut,
+  tcp_cipmux,
+  tcp_ciprxget,
+  tcp_cipstart,
+  tcp_cipclose,
+  tcp_cipstatus,
+  tcp_cipstatus_connected,
+  tcp_cipsend,
+  tcp_cipsending,
+  tcp_available,
+  tcp_read,
   gsm_loc,
   no_op,
   error_mdm,
@@ -98,6 +118,12 @@ typedef struct s_state_t
   char resp_esperada[30];
 } s_state_t;
 
+typedef struct message_t
+{
+  char *payload;
+  uint16_t largo;
+} message_t;
+
 //TODO: Comando a agregar :
 // 2) TCP/IP manage
 // 3) Estado de conxion? AT+CGATT?
@@ -109,11 +135,11 @@ private:
   uint16_t count_intentos = 0;
   void send_msg(const char *msg);
   void send_break_msg(const char *msg);
+  void write_msg(char *msg, uint16_t large);
   void flush();
   Timeout timeout;
   int largo_respuesta_http; //ver de quitar
   void timeout_callback();
-  char *msg_a_enviar;
   DigitalOut m_pinReg;
   DigitalOut m_powKey;
   s_state_t s_state;
@@ -121,6 +147,8 @@ private:
 public:
   rxBuffer rxBuff;
   RawSerial module;
+  message_t message;
+  message_t message_in;
   volatile bool timeout_flag{0};
   error_modem_t error_modem;
   char m_imei[20];
@@ -128,8 +156,9 @@ public:
   char timestamp[30];
   float lat{0};
   float lon{0};
-  void (*callback)();       // se ejecuta por ejemplo al obtner el imei o el timestamp
-  void (*status_handler)(); // aviso a main ppal cuando termino un task
+  bool mode_high_level_fuction = false; // si es true entonces configuro y uso funciones http de alto nivel, sino vuelvo
+  void (*callback)();                   // se ejecuta por ejemplo al obtner el imei o el timestamp
+  void (*status_handler)();             // aviso a main ppal cuando termino un task
   Sim800c(PinName tx, PinName rx, PinName pinReg = PA_0, PinName powKey = PA_1, void (*modem_handler)() = NULL) : status_handler(modem_handler), m_pinReg(pinReg), m_powKey(powKey), module(tx, rx){};
   void begin(uint16_t baud);
   void task();
@@ -170,6 +199,17 @@ public:
       break;
     case modem_download_ftp:
       s_state.estado_actual = download_ftp_1;
+      break;
+    case modem_start_tcp_config:
+      s_state.estado_actual = tcp_cipshut;
+      break;
+    case modem_sendtcp:
+      callback = data;
+      s_state.estado_actual = tcp_cipstatus_connected;
+      break;
+    case modem_closetcp:
+      callback = data;
+      s_state.estado_actual = tcp_cipclose;
       break;
     default:
       break;
