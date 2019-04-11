@@ -14,6 +14,19 @@ void rxBuffer::add_c(char c)
   rxBuffer::new_data = true;
 }
 
+uint16_t rxBuffer::get_size_buffer(uint16_t offset = 0)
+{
+  int ret = rxBuffer::ind - offset;
+  if (ret > 0)
+  {
+    return ret;
+  }
+  else
+  {
+    return 0;
+  }
+}
+
 void rxBuffer::clear()
 {
   memset((char *)rxBuffer::buff, '\0', MAX_LENGTH_RX_BUFF);
@@ -37,14 +50,14 @@ void Sim800c::send_msg(const char *msg)
 
 void Sim800c::write_msg(char *msg, uint16_t large)
 {
-  int largito = 0;
+  //int largito = 0;
   for (int i = 0; i < large; i++)
   {
     Sim800c::module.putc((int)msg[i]);
-    largito = i;
-    printf("largito: %d\n\r", largito);
+    //largito = i;
+    //printf("largito: %d\n\r", largito);
   }
-  printf("largito: %d", largito);
+  //printf("largito: %d", largito);
 }
 
 void Sim800c::send_break_msg(const char *msg)
@@ -445,17 +458,6 @@ void Sim800c::task()
 
     /**TCP SEND COMMANDS**/
     //TODO: agregar caso en el que la respuesta no es connect OK, ej de respuesta CLOSED
-
-  case tcp_cipstatus_connected:
-    rxBuff.clear();
-    printf("status\n\r");
-    send_msg("AT+CIPSTATUS");
-    s_state.estado_anterior = s_state.estado_actual;
-    s_state.estado_actual = esperando_respuesta;
-    s_state.estado_proximo = tcp_cipsend;
-    strcpy(s_state.resp_esperada, "STATE: CONNECT OK");
-    timeout.attach(&timeout_cmd, 2.0);
-    break;
   case tcp_cipsend:
     memset(largo, '\0', 5);
     rxBuff.clear();
@@ -495,7 +497,7 @@ void Sim800c::task()
   case tcp_read:
     memset(largo, '\0', 5);
     rxBuff.clear();
-    sprintf(largo, "%d", largo_respuesta_http);
+    sprintf(largo, "%d", message_in.largo);
     printf("leyendo msg TCP...\n\r");
     send_break_msg("AT+CIPRXGET=2,");
     send_msg(largo);
@@ -504,6 +506,18 @@ void Sim800c::task()
     s_state.estado_proximo = finish_task;
     strcpy(s_state.resp_esperada, "+CIPRXGET: 2,");
     timeout.attach(&timeout_cmd, 4.0);
+    break;
+
+  //TCP STATUS OF connection
+  case tcp_cipstatus_connected:
+    rxBuff.clear();
+    printf("status\n\r");
+    send_msg("AT+CIPSTATUS");
+    s_state.estado_anterior = s_state.estado_actual;
+    s_state.estado_actual = esperando_respuesta;
+    //s_state.estado_proximo = tcp_cipsend; // lo cargo de afuera
+    strcpy(s_state.resp_esperada, "STATE: CONNECT OK");
+    timeout.attach(&timeout_cmd, 2.0);
     break;
 
     //TCP close
@@ -516,6 +530,7 @@ void Sim800c::task()
     strcpy(s_state.resp_esperada, "OK");
     timeout.attach(&timeout_cmd, 2.0);
     break;
+
   /**GSM LOCATION***/
   case gsm_loc:
     rxBuff.clear();
@@ -598,8 +613,8 @@ void Sim800c::task()
         Sim800c::m_imei[i - 1] = '\0';
       }
       s_state.estado_actual = s_state.estado_proximo;
-      if (callback != NULL)
-        callback(); //llamo a funcion de callback y cargo hora
+      event = IMEI_RDY;
+      //llamo a funcion de callback y cargo hora
       //printf("%s", Sim800c::m_imei);
       //printf("\r\n");
       break;
@@ -619,8 +634,8 @@ void Sim800c::task()
         Sim800c::timestamp[i] = '\0';
       }
       s_state.estado_actual = s_state.estado_proximo;
-      if (callback != NULL)
-        callback(); //llamo a funcion de callback y cargo hora
+      event = TIMESTAMP_RDY;
+      //llamo a funcion de callback y cargo hora
       //printf(Sim800c::timestamp);
       break;
     case hora_red:
@@ -668,6 +683,7 @@ void Sim800c::task()
         //Serial.println(m_rssi);
         if (callback != NULL)
           callback(); //llamo a funcion de callback
+        event = RSSI_RDY;
       }
       s_state.estado_actual = s_state.estado_proximo;
       break;
@@ -708,6 +724,7 @@ void Sim800c::task()
       message_in.largo = atoi(p);
       printf("largo a leer: %d \r\n", message_in.largo);
 
+      //TODO: si largo es mayor que MAX_LARGO_BUFFER entonces leo solo el maximo
       if (message_in.largo > 0)
       {
         s_state.estado_actual = s_state.estado_proximo;
@@ -718,7 +735,32 @@ void Sim800c::task()
       }
       break;
     case tcp_read:
-      // while ()
+      p = strstr((char *)rxBuff.buff, "+CIPRXGET: 2,");
+      printf(p);
+      p = p + 13;
+      v = strstr(p, "\n");
+      v = v + 1;
+      int offset;
+      offset = 0;
+      char *p_cpy;
+      p_cpy = p;
+      while (p_cpy <= v)
+      {
+        p_cpy++;
+        offset++;
+      }
+      printf(v);
+      //lleno el buffer
+      while (rxBuff.get_size_buffer(offset) < message_in.largo)
+      { // TODO:cambiar a no bloqueante
+      }
+      for (int i = 0; i < message_in.largo; i++)
+      {
+        message_in.payload[i] = v[i];
+      }
+      s_state.estado_actual = s_state.estado_proximo;
+      event = TCP_MESSAGE_RECIVED;
+      //
       break;
     case gsm_loc:
       //+CIPGSMLOC: 0,-56.190739,-34.903355,2019/03/20,18:00:40
@@ -734,9 +776,8 @@ void Sim800c::task()
       // printf("%s\n\r", buf_aux);
       // sprintf(buf_aux, "%f", lat);
       // printf("%s\n\r", buf_aux);
+      event = GSM_LOC_RDY;
       s_state.estado_actual = s_state.estado_proximo;
-      if (callback != NULL)
-        callback();
       break;
     default:
       s_state.estado_actual = s_state.estado_proximo;
@@ -753,7 +794,9 @@ void Sim800c::task()
   case finish_task:
     error_modem = OK_MDM;
     s_state.estado_actual = no_op; //no_op;
-    status_handler();
+    if (callback != NULL)
+      callback();
+    event_handle(event);
     printf("mision completa\n\r");
     break;
   case no_op:

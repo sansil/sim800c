@@ -55,11 +55,16 @@ volatile int buff_ind = 0;
 volatile bool data_rdy = false;
 volatile char buff[50];
 rxBuffer modem_buff;
-void modem_hanlde();
+void modem_hanlde(modem_event_t e);
 
 Sim800c simcom(PA_9, PA_10, PB_13, PB_14, modem_hanlde);
 Timeout flipper;
 uint8_t connectPacket(uint8_t *packet);
+uint8_t subscribePacket(uint8_t *packet, const char *topic, uint8_t qos);
+
+//modem_event_t event_modem;
+#define m_topic "test/message"
+
 // void rx_callback()
 // {
 //   data_rdy = true;
@@ -103,11 +108,85 @@ bool pedir_gsmLoc = false;
 bool pedir_rssi = false;
 bool pedir_tcp_config = false;
 uint8_t buffer[150];
-void modem_hanlde()
+uint8_t buffer_in[150];
+
+void message_recived()
+{
+  printf("mensaje recibido!\n\rdice: %s\n\r", buffer_in);
+  if (simcom.message_in.largo != 4)
+  {
+    printf("perdi en 1\n\r");
+    simcom.set_request(modem_readtcp, message_recived);
+    return;
+  }
+
+  if ((buffer_in[0] != (MQTT_CTRL_CONNECTACK << 4)) || (buffer_in[1] != 2))
+  {
+    printf("perdi en 2\n\r");
+    return;
+  }
+
+  if (buffer_in[3] != 0)
+  {
+    printf("perdi en 3\n\r");
+    //return buffer_in[3];
+    return;
+  }
+  printf("GANEEEE\n\r");
+
+  // memset(buffer_in, '\0', 150);
+  simcom.message.largo = subscribePacket(buffer, m_topic, 1);
+  simcom.message.payload = (char *)buffer;
+  simcom.message_in.payload = (char *)buffer_in;
+  simcom.set_request(modem_sendtcp, message_recived);
+
+  //simcom.set_request(modem_readtcp, message_recived);
+}
+
+void modem_hanlde(modem_event_t e)
 {
 
   if (simcom.error_modem == OK_MDM)
   {
+
+    switch (e)
+    {
+    case MDM_RDY:
+      /* Arranco pideindo la hora */
+      printf("pidiendo hora\n\t");
+      simcom.set_request(modem_getcclk, printTime);
+      break;
+    case TIMESTAMP_RDY:
+      /* ahor apido el imei */
+      simcom.set_request(modem_getimei, printIMEI);
+      break;
+    case IMEI_RDY:
+      /* ahora pido GSM loc */
+      simcom.set_request(modem_getgsmloc, printGSMLoc);
+      break;
+    case GSM_LOC_RDY:
+      /* ahora pido GSM loc */
+      simcom.set_request(modem_getgsmloc, printGSMLoc);
+      break;
+    case TCP_MESSAGE_RECIVED:
+      /* ahora pido GSM loc */
+      simcom.set_request(modem_getgsmloc, printGSMLoc);
+      break;
+    case TCP_MESSAGE_SEND:
+      /* ahora pido GSM loc */
+      simcom.set_request(modem_getgsmloc, printGSMLoc);
+      break;
+    case TCP_CONNECTED:
+      /* ahora pido GSM loc */
+      simcom.set_request(modem_getgsmloc, printGSMLoc);
+      break;
+    case TCP_DISCONNECTED:
+      /* ahora pido GSM loc */
+      simcom.set_request(modem_getgsmloc, printGSMLoc);
+      break;
+    default:
+      break;
+    }
     printf("tarea en modem terminada\n\r");
     if (!pedir_time)
     {
@@ -141,22 +220,25 @@ void modem_hanlde()
       uint8_t len = connectPacket(buffer);
       for (int i = 0; i < len + 3; i++)
       {
-        printf("%d\n\r", buffer[i]);
+        //printf("%d\n\r", buffer[i]);
       }
       simcom.message.payload = (char *)buffer;
+      simcom.message_in.payload = (char *)buffer_in;
       printf("largo real mensaje %d \n\r", strlen(simcom.message.payload));
       simcom.message.largo = len;
-      simcom.set_request(modem_sendtcp, NULL);
+      simcom.set_request(modem_sendtcp, message_recived);
       printf("mensaje a enviar: %s \n\rlargo: %d\n\r", (char *)buffer, len);
-      // pedir_tcp_config = false;
+      pedir_tcp_config = false;
     }
   }
 }
+
 volatile bool timeo = false;
 void flip()
 {
   timeo = !timeo;
 }
+
 int main()
 {
   // led2 = 1;
@@ -322,6 +404,40 @@ uint8_t connectPacket(uint8_t *packet)
 
   packet[1] = len - 2; // don't include the 2 bytes of fixed header data
   //DEBUG_PRINTLN(F("MQTT connect packet:"));
+  //DEBUG_PRINTBUFFER(buffer, len);
+  return len;
+}
+
+uint16_t packet_id_counter = 0;
+
+uint8_t
+subscribePacket(uint8_t *packet, const char *topic,
+                uint8_t qos)
+{
+  uint8_t *p = packet;
+  uint16_t len;
+
+  //Variable header
+  p[0] = MQTT_CTRL_SUBSCRIBE << 4 | MQTT_QOS_1 << 1;
+  // fill in packet[1] last
+  p += 2;
+
+  // packet identifier. used for checking SUBACK
+  p[0] = (packet_id_counter >> 8) & 0xFF;
+  p[1] = packet_id_counter & 0xFF;
+  p += 2;
+
+  // increment the packet id
+  packet_id_counter++;
+
+  p = stringprint(p, topic);
+
+  p[0] = qos;
+  p++;
+
+  len = p - packet;
+  packet[1] = len - 2; // don't include the 2 bytes of fixed header data
+  //DEBUG_PRINTLN(F("MQTT subscription packet:"));
   //DEBUG_PRINTBUFFER(buffer, len);
   return len;
 }

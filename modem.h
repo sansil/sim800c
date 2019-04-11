@@ -20,6 +20,7 @@ struct rxBuffer
   volatile bool new_data = false;
   void add_c(char c);
   void clear();
+  uint16_t get_size_buffer(uint16_t offset);
 };
 
 typedef enum error_modem_t
@@ -38,6 +39,8 @@ typedef enum request_t
   modem_getimei,
   modem_sendgprs,
   modem_sendtcp,
+  modem_checktcp_connection,
+  modem_readtcp,
   modem_start_tcp_config,
   modem_closetcp,
   modem_getrssi,
@@ -124,6 +127,19 @@ typedef struct message_t
   uint16_t largo;
 } message_t;
 
+typedef enum modem_event_t
+{
+  TCP_MESSAGE_RECIVED = 0,
+  TCP_MESSAGE_SEND,
+  TCP_CONNECTED,
+  TCP_DISCONNECTED,
+  IMEI_RDY,
+  RSSI_RDY,
+  TIMESTAMP_RDY,
+  GSM_LOC_RDY,
+  MDM_RDY
+} modem_event_t;
+
 //TODO: Comando a agregar :
 // 2) TCP/IP manage
 // 3) Estado de conxion? AT+CGATT?
@@ -143,6 +159,7 @@ private:
   DigitalOut m_pinReg;
   DigitalOut m_powKey;
   s_state_t s_state;
+  modem_event_t event;
 
 public:
   rxBuffer rxBuff;
@@ -156,10 +173,10 @@ public:
   char timestamp[30];
   float lat{0};
   float lon{0};
-  bool mode_high_level_fuction = false; // si es true entonces configuro y uso funciones http de alto nivel, sino vuelvo
-  void (*callback)();                   // se ejecuta por ejemplo al obtner el imei o el timestamp
-  void (*status_handler)();             // aviso a main ppal cuando termino un task
-  Sim800c(PinName tx, PinName rx, PinName pinReg = PA_0, PinName powKey = PA_1, void (*modem_handler)() = NULL) : status_handler(modem_handler), m_pinReg(pinReg), m_powKey(powKey), module(tx, rx){};
+  bool mode_high_level_fuction = false;  // si es true entonces configuro y uso funciones http de alto nivel, sino vuelvo
+  void (*callback)();                    // se ejecuta por ejemplo al obtner el imei o el timestamp
+  void (*event_handle)(modem_event_t e); // aviso a main ppal cuando termino un task
+  Sim800c(PinName tx, PinName rx, PinName pinReg = PA_0, PinName powKey = PA_1, void (*modem_handler)(modem_event_t e) = NULL) : event_handle(modem_handler), m_pinReg(pinReg), m_powKey(powKey), module(tx, rx){};
   void begin(uint16_t baud);
   void task();
   void set_request(request_t req, void (*data)())
@@ -204,6 +221,16 @@ public:
       s_state.estado_actual = tcp_cipshut;
       break;
     case modem_sendtcp:
+      callback = data;
+      s_state.estado_proximo = tcp_cipsend;
+      s_state.estado_actual = tcp_cipstatus_connected; // check if connect ok
+      break;
+    case modem_readtcp:
+      callback = data;
+      s_state.estado_proximo = tcp_available; // check if connect ok
+      s_state.estado_actual = tcp_cipstatus_connected;
+      break;
+    case modem_checktcp_connection:
       callback = data;
       s_state.estado_actual = tcp_cipstatus_connected;
       break;
